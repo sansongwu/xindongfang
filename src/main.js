@@ -1,5 +1,8 @@
-// require('./css/index.css')
-require('./index.css')
+require('./css/index.css')
+require('./css/page1.css')
+require('./css/page3.css')
+// require('./css.css')
+require('./js/smoke/page1smoke')
 const pageSize = require('./js/pageSize')
 const move = require('./js/touchMove')
 

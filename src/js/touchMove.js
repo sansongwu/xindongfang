@@ -112,9 +112,10 @@ page2.addEventListener('touchend', function () {
     strategies.pullDown(page2Fun.pullDown)
 })
 page3.addEventListener('touchend', function () {
-    strategies.allDirection(pullUp, pullDown, pullLeft, pullRight)
-    strategies.pullUp(page3Fun.pullUp)
-    strategies.pullDown(page3Fun.pullDown)
+    console.log('page3 end')
+    strategies.allDirection(page3Fun.pullUp, page3Fun.pullDown, page3Fun.pullLeft, page3Fun.pullRight)
+    /*strategies.pullUp(page3Fun.pullUp)
+    strategies.pullDown(page3Fun.pullDown)*/
 })
 page4.addEventListener('touchend', function () {
 

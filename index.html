@@ -6,7 +6,9 @@
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hello World</title>
-
+  <script type="text/javascript" src="./static/smoke.js"></script>
+  <script type="text/javascript" src="./static/staticTest.js"></script>
+  <!--<script src="./src/assets/test.js"></script>-->
 </head>
 
 <body>
@@ -14,16 +16,151 @@
     <div class="contents" id="contents">
         <div class="page1" id="page1">
 
+          <!--第一页内容-->
+          <div class="content">
+            <div class="logo">
+              <img src="static/img/page1/logo.png" alt="">
+            </div>
+            <div class="title">
+              <img src="static/img/page1/title.png" alt="">
+            </div>
+
+            <div class="poetry">
+              <ul id="poetry">
+                <li>
+                  <img src="static/img/page1/text-1.png" alt="">
+                </li>
+                <li>
+                  <img src="static/img/page1/text-2.png" alt="">
+                </li>
+                <li>
+                  <img src="static/img/page1/text-3.png" alt="">
+                </li>
+                <li>
+                  <img src="static/img/page1/text-4.png" alt="">
+                </li>
+                <li>
+                  <img src="static/img/page1/text-5.png" alt="">
+                </li>
+                <li>
+                  <img src="static/img/page1/text-6.png" alt="">
+                </li>
+                <li>
+                  <img src="static/img/page1/text-7.png" alt="">
+                </li>
+                <li>
+                  <img src="static/img/page1/text-8.png" alt="">
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 烟雾 -->
+          <div class="smokes" id="smokes">
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+            <canvas></canvas>
+          </div>
         </div>
         <div class="page2" id="page2">
 
         </div>
+
+        <!-- 第三页开始 -->
         <div class="page3" id="page3">
             <div class="page3-top" id="page3_top">
-
+              <div class="logo" id="page3_logo">
+                <img src="static/img/page1/logo.png" alt="">
+              </div>
+              <div class="title" id="page3_title">
+                <img src="static/img/page3/title.png" alt="">
+              </div>
+              <div class="info" id="page3_info">
+                <img src="static/img/page3/info.png" alt="">
+              </div>
             </div>
             <div class="page3-bottom" id="page3_bottom">
-
+              <div class="book" id="book">
+                <div class="mark">
+                  <ul id="mark_ul">
+                    <li>
+                      <img src="static/img/page3/mark/m00.png" alt="">
+                    </li>
+                    <li>
+                      <img src="static/img/page3/mark/m1.png" alt="">
+                    </li>
+                    <li>
+                      <img src="static/img/page3/mark/m2.png" alt="">
+                    </li>
+                    <li>
+                      <img src="static/img/page3/mark/m3.png" alt="">
+                    </li>
+                    <li>
+                      <img src="static/img/page3/mark/m4.png" alt="">
+                    </li>
+                    <li>
+                      <img src="static/img/page3/mark/m5.png" alt="">
+                    </li>
+                    <li>
+                      <img src="static/img/page3/mark/m6.png" alt="">
+                    </li>
+                    <li>
+                      <img src="static/img/page3/mark/m7.png" alt="">
+                    </li>
+                    <li>
+                      <img src="static/img/page3/mark/m8.png" alt="">
+                    </li>
+                    <li>
+                      <img src="static/img/page3/mark/m9.png" alt="">
+                    </li>
+                    <li>
+                      <img src="static/img/page3/mark/more.png" alt="">
+                    </li>
+                  </ul>
+                </div>
+                <div class="book-content">
+                  <ul id="">
+                    <li>
+                      <img src="static/img/page3/book-content/person1.jpg" alt="">
+                    </li>
+                    <li>
+                      <img src="static/img/page3/book-content/person2.jpg" alt="">
+                    </li>
+                    <li>
+                      <img style="display: block" src="static/img/page3/book-content/person3.jpg" alt="">
+                    </li>
+                    <li>
+                      <img src="static/img/page3/book-content/person4.jpg" alt="">
+                    </li>
+                  </ul>
+                </div>
+                <img class="bgc" src="static/img/page3/background-bottom.png" alt="">
+              </div>
             </div>
         </div>
         <div class="page4" id="page4">
@@ -33,7 +170,15 @@
 </div>
 
 </body>
+
 <style>
+  html,body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+
+  }
+
     /*.wrap {
         width: 100%;
         height: 100%;

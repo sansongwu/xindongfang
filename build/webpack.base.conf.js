@@ -32,11 +32,6 @@ module.exports = {
   module: {
     rules: [
       {
-        // 处理css文件
-        test: /\.css$/,
-        loader: "style-loader!css-loader"
-      },
-      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig

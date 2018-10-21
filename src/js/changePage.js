@@ -25,6 +25,7 @@ export let goDown = function () {
 
 export let goUp = function () {
     if (currentPage <= minPage) {
+      console.log('return')
         return
     }
     currentPage--
