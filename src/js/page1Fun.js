@@ -1,10 +1,12 @@
 const changePage = require('./changePage')
-const {page1, poetry} = require('./getElement')
+const {page1, poetry, audio2, video} = require('./getElement')
 const velocity = require('velocity-animate')
 require('velocity-animate/velocity.ui');
 
 export let pullUp = function () {
-    changePage.goDown()
+  // audio2.play()
+  video.play()
+  changePage.goDown()
 }
 
 setTimeout(() => {

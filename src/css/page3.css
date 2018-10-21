@@ -1,6 +1,6 @@
 
 .page3 .page3-top {
-  height: 30%;
+  height: 28%;
   width: 100%;
   /*background-color: aqua;*/
   position: relative;
@@ -46,7 +46,7 @@
 
 /* 底部开始 */
 .page3 .page3-bottom {
-  height: 70%;
+  height: 72%;
   width: 100%;
   /*background-color: darkorange;*/
   position: relative;
@@ -70,7 +70,7 @@
 .page3 .page3-bottom .book .mark {
   width: 100%;
   position: absolute;
-  top:-6%;
+  top:-4%;
   z-index: 10;
 }
 
@@ -83,17 +83,56 @@
 
   position: relative;
 
-  left: 50%;
+  left: 55%;
   transform: translateX(-50%);
 
 }
 
 .page3 .page3-bottom .book .mark li {
-  width: 9%;
+  width: 8%;
+  position: relative;
 }
+
 .page3 .page3-bottom .book .mark li img {
   width: 100%;
 }
+
+.page3 .page3-bottom .book .mark li:nth-child(1) {
+  top: 0.3rem;
+}
+.page3 .page3-bottom .book .mark li:nth-child(2) {
+  top: 0rem;
+}
+.page3 .page3-bottom .book .mark li:nth-child(3) {
+  top: 0.2rem;
+}
+.page3 .page3-bottom .book .mark li:nth-child(4) {
+  top: 0.3rem;
+}
+.page3 .page3-bottom .book .mark li:nth-child(5) {
+  top: 0rem;
+}
+.page3 .page3-bottom .book .mark li:nth-child(6) {
+  top: 0.2rem;
+}
+.page3 .page3-bottom .book .mark li:nth-child(7) {
+  top: 0.3rem;
+}
+.page3 .page3-bottom .book .mark li:nth-child(8) {
+  top: 0.4rem;
+}
+.page3 .page3-bottom .book .mark li:nth-child(9) {
+  top: 0.1rem;
+}
+.page3 .page3-bottom .book .mark li:nth-child(10) {
+  top: 0.3rem;
+}
+.page3 .page3-bottom .book .mark li:nth-child(11) {
+  top: -0.5rem;
+  width: 12%;
+}
+
+
 /* 书签结束 */
 
 /* 内容开始 */
@@ -106,7 +145,7 @@
 }
 .page3 .page3-bottom .book .book-content img {
   width: 100%;
-  display: none;
+  display: block;
 }
 /* 内容结束 */
 .page3 .page3-bottom .book .bgc {
@@ -114,6 +153,6 @@
   height: 100%;
   position: absolute;
   z-index: 10;
-  top: -2%;
+  top: 0%;
   left: 0;
 }

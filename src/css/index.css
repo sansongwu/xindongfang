@@ -19,6 +19,12 @@ ul,li {
   background-color: #212121;
 }
 
+.music {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
 .page1 {
   height: 200px;
   width: 100%;
@@ -46,6 +52,7 @@ ul,li {
   width: 100%;
   background-color: green;
   color: #ffffff;
+  position: relative;
 }
 .page3 {
   height: 200px;

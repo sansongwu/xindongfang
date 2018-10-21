@@ -1,10 +1,15 @@
 require('./css/index.css')
 require('./css/page1.css')
+require('./css/page2.css')
 require('./css/page3.css')
 // require('./css.css')
-require('./js/smoke/page1smoke')
+// require('./js/smoke/page1smoke')
 const pageSize = require('./js/pageSize')
 const move = require('./js/touchMove')
+const music = require('./js/music')
+const video = require('./js/video')
+const changePage = require('./js/animate/changePage')
+
 
 const winH = pageSize.winH
 const winW = pageSize.winW
@@ -17,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('page4').style.height = winH + 'px'
 
 })
+
 
 
 

@@ -10,6 +10,9 @@ module.exports = {
   page3_info: document.getElementById('page3_info'),
   page3_logo: document.getElementById('page3_logo'),
   mark_ul: document.getElementById('mark_ul'),
+  book_content: document.getElementById('book_content'),
+  audio2: document.getElementById('audio2'),
+  video: document.getElementById('video'),
 
 
 }

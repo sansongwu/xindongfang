@@ -1,5 +1,5 @@
 const changePage = require('./changePage')
-const {page3, book, page3_title, page3_info, page3_logo, mark_ul} = require('./getElement')
+const {page3, book, book_content,page3_title, page3_info, page3_logo, mark_ul} = require('./getElement')
 const velocity = require('velocity-animate')
 require('velocity-animate/velocity.ui');
 
@@ -75,6 +75,8 @@ function goPage() {
   console.log('当前是第 '+currentPage+' 页')
 
   setMark(currentPage)
+  $("#book_content").turn(currentPage + 1)
+
 }
 function backPage() {
   if (currentPage <= 0) {
@@ -92,7 +94,7 @@ function setMark(pageNum) {
   /* 如果到最后一个了 就是 more  不是规律的画图 */
   if (pageNum == mark_ul.children.length-1) {
     target.src = 'static/img/page3/mark/more.png'
-
+    mark_ul.children[mark_ul.children.length-1].style.top = '-0.8rem'
     /* 修改前一个图 */
     let frontTarget = mark_ul.children[pageNum-1].children[0]
     frontTarget.src = 'static/img/page3/mark/m'+(pageNum-1)+'.png'
@@ -110,7 +112,17 @@ function setMark(pageNum) {
       let backTarget = mark_ul.children[pageNum+1].children[0]
       backTarget.src = 'static/img/page3/mark/m'+(pageNum+1)+'.png'
     }
+    mark_ul.children[mark_ul.children.length-1].style.top = '-0.5rem'
   }
 
 
+}
+
+book_content.children[0].children[0].onload = function () {
+  let time = new Date()
+  console.log(`图片1加载完成 ${time.getTime()}`)
+}
+book_content.children[3].children[0].onload = function () {
+  let time = new Date()
+  console.log(`图片4加载完成 ${time.getTime()}`)
 }
