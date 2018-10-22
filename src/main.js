@@ -5,10 +5,21 @@ require('./css/page3.css')
 // require('./css.css')
 // require('./js/smoke/page1smoke')
 const pageSize = require('./js/pageSize')
-const move = require('./js/touchMove')
 const music = require('./js/music')
 const video = require('./js/video')
-const changePage = require('./js/animate/changePage')
+
+
+const move = require('./js/touchMove')
+
+/* 图片预加载 */
+/*window.onload = function () {
+  const preLoading = require('./js/imgPreloading')
+  preLoading.loading(() => {
+    const changePage = require('./js/animate/changeBookPage')
+    const move = require('./js/touchMove')
+  })
+}*/
+
 
 
 const winH = pageSize.winH

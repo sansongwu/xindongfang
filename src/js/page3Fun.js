@@ -2,6 +2,7 @@ const changePage = require('./changePage')
 const {page3, book, book_content,page3_title, page3_info, page3_logo, mark_ul} = require('./getElement')
 const velocity = require('velocity-animate')
 require('velocity-animate/velocity.ui');
+const changeBookPage = require('./animate/changeBookPage')
 
 let imgFinish = false
 
@@ -75,7 +76,7 @@ function goPage() {
   console.log('当前是第 '+currentPage+' 页')
 
   setMark(currentPage)
-  $("#book_content").turn(currentPage + 1)
+  changeBookPage.nextPage()
 
 }
 function backPage() {
@@ -86,6 +87,7 @@ function backPage() {
   console.log('当前是第 '+currentPage+' 页')
 
   setMark(currentPage)
+  changeBookPage.backPage()
 }
 /* 设置书签样式 */
 function setMark(pageNum) {
@@ -118,11 +120,11 @@ function setMark(pageNum) {
 
 }
 
-book_content.children[0].children[0].onload = function () {
+/*book_content.children[0].children[0].onload = function () {
   let time = new Date()
   console.log(`图片1加载完成 ${time.getTime()}`)
 }
 book_content.children[3].children[0].onload = function () {
   let time = new Date()
   console.log(`图片4加载完成 ${time.getTime()}`)
-}
+}*/

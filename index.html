@@ -5,11 +5,12 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="./static/jquery.js"></script>
+  <script type="text/javascript" src="./static/turn.js"></script>
   <title>Hello World</title>
   <!--<script type="text/javascript" src="./static/smoke.js"></script>-->
   <!--<script type="text/javascript" src="./static/staticTest.js"></script>-->
-  <script type="text/javascript" src="./static/jquery.js"></script>
-  <script type="text/javascript" src="./static/turn.js"></script>
+
   <!--<script src="./src/assets/test.js"></script>-->
 </head>
 
@@ -39,7 +40,7 @@
         <div class="title">
           <img src="static/img/page1/title.png" alt="">
         </div>
-
+        <!-- 诗词 -->
         <div class="poetry">
           <ul id="poetry">
             <li>
@@ -126,6 +127,7 @@
       </div>
       <div class="page3-bottom" id="page3_bottom">
         <div class="book" id="book">
+          <!-- 书签 -->
           <div class="mark">
             <ul id="mark_ul">
               <li>
@@ -163,8 +165,15 @@
               </li>
             </ul>
           </div>
+          <!-- 书内容 -->
           <div class="book-content">
-            <ul id="book_content">
+            <div style="background:url('./static/img/page3/book-content/person1.jpg') center top no-repeat;background-size:100%"></div>
+            <div style="background:url('./static/img/page3/book-content/person2.jpg') center top no-repeat;background-size:100%"></div>
+            <div style="background:url('./static/img/page3/book-content/person3.jpg') center top no-repeat;background-size:100%"></div>
+            <div style="background:url('./static/img/page3/book-content/person4.jpg') center top no-repeat;background-size:100%"></div>
+
+
+            <!--<ul id="book_content">
               <li>
                 <img src="static/img/page3/book-content/person1.jpg" alt="">
               </li>
@@ -177,7 +186,7 @@
               <li>
                 <img src="static/img/page3/book-content/person4.jpg" alt="">
               </li>
-            </ul>
+            </ul>-->
           </div>
           <img class="bgc" src="static/img/page3/background-bottom.png" alt="">
         </div>
@@ -190,6 +199,7 @@
 </div>
 
 </body>
+
 
 <style>
   html, body {
@@ -251,5 +261,19 @@
 </style>
 </html>
 <script>
-
+  /*$(".book_content").turn({
+    width: 200,
+    height: 300,
+    autoCenter: true,
+    display: 'single',  // 显示书的一页 还是 两页（double）
+    turnCorners: "bl,tr",  // 渐变方向 一般在翻页之前设置
+    elevation: 50,  // 设置过渡期间页面的高程  会产生折角
+    acceleration: true, //设置硬件加速模式，对于触摸设备这个值必须是真的
+    gradients: true,  //在转换过程中显示渐变和阴影。
+    when:{
+      /!*turned: function (e, page, view) {
+        console.log(page);
+      }*!/
+    }
+  });*/
 </script>
