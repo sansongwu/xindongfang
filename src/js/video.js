@@ -28,6 +28,16 @@ function autoPlayAudio(id) {
   return false;
 }
 
+/* 全屏代码 */
+/*console.log('----')
+console.log(window.innerWidth)
+document.getElementById('video').style.width = window.innerWidth + "px";
+document.getElementById('video').style.height = window.innerHeight + "px";
+window.onresize = function(){
+
+}*/
+
+
 /*if (ua.match(/MicroMessenger/i) == "micromessenger") {
   //在微信中打开
   autoPlayAudio('video');

@@ -2,17 +2,22 @@ const changePage = require('./changePage')
 const {page3, book, book_content,page3_title, page3_info, page3_logo, mark_ul} = require('./getElement')
 const velocity = require('velocity-animate')
 require('velocity-animate/velocity.ui');
-const changeBookPage = require('./animate/changeBookPage')
+
+setTimeout(() => {
+  const changeBookPage = require('./animate/changeBookPage')
+
+},2000)
+
 
 let imgFinish = false
 
 export let pullUp = function () {
-    /* 只有当图片被放大  文案出来过后 才是翻页 */
-    if (imgFinish) {
-        changePage.goDown()
+    /* 放大图片 只放大一次 */
+    if (!imgFinish) {
+      enlargeImg()
+      imgFinish = true
     } else {
-        enlargeImg()
-        imgFinish = true
+      return
     }
 
 }
@@ -45,7 +50,8 @@ export let enlargeImg = function () {
   });
 
   Velocity(page3_title, {
-    top: '8%'
+    top: '8%',
+    width: '45%'
   }, {
     duration: 200,
     easing: "swing"
@@ -76,7 +82,7 @@ function goPage() {
   console.log('当前是第 '+currentPage+' 页')
 
   setMark(currentPage)
-  changeBookPage.nextPage()
+  // changeBookPage.nextPage()
 
 }
 function backPage() {
@@ -87,7 +93,7 @@ function backPage() {
   console.log('当前是第 '+currentPage+' 页')
 
   setMark(currentPage)
-  changeBookPage.backPage()
+  // changeBookPage.backPage()
 }
 /* 设置书签样式 */
 function setMark(pageNum) {

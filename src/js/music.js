@@ -39,7 +39,8 @@ function  audioAutoPlay(id){
 
   return false;
 }
-audioAutoPlay('audio2')
+// audioAutoPlay('audio2')
+
 
 /*if (ua.match(/MicroMessenger/i) == "micromessenger") {
   //在微信中打开

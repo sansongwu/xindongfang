@@ -1,7 +1,7 @@
 const page1Fun = require('./page1Fun')
 const page2Fun = require('./page2Fun')
 const page3Fun = require('./page3Fun')
-const page4Fun = require('./page4Fun')
+// const page4Fun = require('./page4Fun')
 
 let moveStartY, moveEndY, diffY, moveStartX, moveEndX, diffX
 /* 滑动的有效距离 */
@@ -15,19 +15,29 @@ function touchStart(e) {
     let touch = e.touches[0]
     moveStartY = touch.pageY
     moveStartX = touch.pageX
+    /* end必须初始和 start 一样 否则 end没值  单机也会触发滚动 */
+    moveEndY = moveStartY
+    moveEndX = moveStartX
 }
 
 function touchMove(e) {
     let touch = e.touches[0]
     moveEndY = touch.pageY
     moveEndX = touch.pageX
+
+}
+
+/* 计算差值 在end事件中先执行 */
+function end() {
     diffY = moveStartY - moveEndY
     diffX = moveStartX - moveEndX
 }
 
+
 function move() {
     document.body.addEventListener("touchstart", touchStart, false);
     document.body.addEventListener("touchmove", touchMove, false);
+
     //document.body.addEventListener("touchend", touchEnd, false);
 }
 
@@ -102,25 +112,28 @@ let page4 = document.getElementById('page4')
 move()
 
 page1.addEventListener('touchend', function () {
+    end()
     strategies.pullDown(pullDown)
     strategies.pullUp(page1Fun.pullUp)
 })
 
 page2.addEventListener('touchend', function () {
-    strategies.allDirection(pullUp, pullDown, pullLeft, pullRight)
+    end()
+    // strategies.allDirection(pullUp, pullDown, pullLeft, pullRight)
     strategies.pullUp(page2Fun.pullUp)
     strategies.pullDown(page2Fun.pullDown)
 })
 page3.addEventListener('touchend', function () {
+    end()
     console.log('page3 end')
     strategies.allDirection(page3Fun.pullUp, page3Fun.pullDown, page3Fun.pullLeft, page3Fun.pullRight)
     /*strategies.pullUp(page3Fun.pullUp)
     strategies.pullDown(page3Fun.pullDown)*/
 })
-page4.addEventListener('touchend', function () {
-
-    strategies.pullDown(page4Fun.pullDown)
-})
+// page4.addEventListener('touchend', function () {
+//     end()
+//     strategies.pullDown(page4Fun.pullDown)
+// })
 
 function pullUp() {
     console.log('向上滑动的方法')
