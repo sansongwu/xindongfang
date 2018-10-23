@@ -3,6 +3,7 @@ require('./css/index.css')
 require('./css/page1.css')
 require('./css/page2.css')
 require('./css/page3.css')
+require('./css/video.css')
 require('./js/init')
 // require('./css.css')
 // require('./js/smoke/page1smoke')
@@ -22,9 +23,7 @@ const move = require('./js/touchMove')
   })
 }*/
 
-window.onload = function () {
 
-}
 
 const winH = pageSize.winH
 const winW = pageSize.winW
@@ -38,7 +37,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
 })
 
-
+/*$("#flipbook").turn({
+  width: pageSize.winW,
+  height: 300,
+  autoCenter: true,
+  display: 'single',  // 显示书的一页 还是 两页（double）
+  turnCorners: "bl,tr",  // 渐变方向 一般在翻页之前设置
+  elevation: 50,  // 设置过渡期间页面的高程  会产生折角
+  acceleration: true, //设置硬件加速模式，对于触摸设备这个值必须是真的
+  gradients: true,  //在转换过程中显示渐变和阴影。
+  when:{
+    turned: function (e, page, view) {
+      console.log(page);
+    }
+  }
+});*/
 
 
 

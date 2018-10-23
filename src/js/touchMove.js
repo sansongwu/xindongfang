@@ -1,6 +1,7 @@
 const page1Fun = require('./page1Fun')
 const page2Fun = require('./page2Fun')
 const page3Fun = require('./page3Fun')
+const {cover} = require('./getElement')
 // const page4Fun = require('./page4Fun')
 
 let moveStartY, moveEndY, diffY, moveStartX, moveEndX, diffX

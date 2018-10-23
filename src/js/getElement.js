@@ -17,6 +17,7 @@ module.exports = {
   page2_background: document.getElementById('page2_background'),
   index_logo: document.getElementById('index_logo'),
   index_title: document.getElementById('index_title'),
+  cover: document.getElementById('cover'),
 
 
 }

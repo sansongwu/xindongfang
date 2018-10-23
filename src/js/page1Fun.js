@@ -24,8 +24,8 @@ for (let i = 0; i < list.length; i ++) {
 
   setTimeout(() => {
     /* 当最后一行出来之后 page1 淡出 page2淡入 */
-    if (i == list.length-1) {
-    // if (i == 0) {
+    // if (i == list.length-1) {
+    if (i == 0) {
       /* 淡出page1 */
       Velocity(page1, {
         opacity: "0"
@@ -33,7 +33,7 @@ for (let i = 0; i < list.length; i ++) {
         duration: 1000,
         complete() {
           /* 开始播放背景视频 */
-          video.play()
+          // video.play()
           /* 关闭page1 */
           page1.style.display = 'none'
           /* 修改page1 state */

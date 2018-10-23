@@ -23,7 +23,7 @@
 
         A90 = PI / 2,
 
-        isTouch = 'ontouchstart' in window,
+        isTouch = 'ontouchstart1231' in window,
 
         mouseEvents = (isTouch) ?
         {
@@ -35,11 +35,16 @@
         }
             :
         {
-            down: 'mousedown',
+            /*down: 'mousedown',
             move: 'mousemove',
             up: 'mouseup',
             over: 'mouseover',
-            out: 'mouseout'
+            out: 'mouseout'*/
+          down: 'a',
+          move: 's',
+          up: 'd',
+          over: 'f',
+          out: 'g'
         },
 
     // Contansts used for each corner

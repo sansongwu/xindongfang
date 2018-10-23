@@ -28,7 +28,7 @@
         Your browser does not support the <code>audio</code> element.
       </audio>-->
 
-      <audio id="audio2" style="display: none;" src="./static/music/music.m4a" preload="auto" loop="loop" autoplay="autoplay"></audio>
+      <!--<audio id="audio2" style="display: none;" src="./static/music/music.m4a" preload="auto" loop="loop" autoplay="autoplay"></audio>-->
 
     </div>
     <div class="index-logo" id="index_logo">
@@ -88,15 +88,32 @@
     <div class="page2" id="page2">
       <img class="page2-background" id="page2_background" src="./static/img/page1/background.jpg" alt="loading">
       <!--style="width:100%; height:100%; object-fit: fill;"-->
-      <video class="video" loop="loop" id="video" x5-video-player-type="h5" x5-video-player-fullscreen="true">
+      <!--<video class="video" loop="loop" id="video" x5-video-player-type="h5" x5-video-player-fullscreen="true">
         <source class="video-source"  src="./static/video/video.mp4"  type="video/mp4" >;
         您的浏览器不支持 video 标签。
+      </video>-->
+
+      <video
+        id="video1"
+        :src="./static/video/video.mp4"
+        preload="auto"
+        webkit-playsinline
+        playsinline="true"
+
+        x-webkit-airplay="allow"
+        x5-video-player-type="h5"
+        x5-video-player-fullscreen="true"
+        x5-video-orientation="portraint"
+        style="object-fit:fill">
+
       </video>
+
     </div>
 
     <!-- 第三页开始 -->
     <!--style="background:url('static/img/page3/background-top.jpg') top no-repeat;background-size:100%"-->
     <div class="page3" id="page3"  >
+      <!--<div class="cover" id="cover"></div>-->
       <div class="page3-top" id="page3_top">
         <!--<div class="logo" id="page3_logo">
           <img src="static/img/page1/logo.png" alt="">
@@ -146,15 +163,56 @@
               <li>
                 <img src="static/img/page3/mark/more.png" alt="">
               </li>
+
+
+              <!--<li style="background:url('static/img/page3/mark/sprite30x52.png') no-repeat 0px 0px"></li>
+              <li style="background:url('static/img/page3/mark/sprite30x52.png') no-repeat -30px 0px"></li>
+              <li style="background:url('static/img/page3/mark/sprite30x52.png') no-repeat -60px 0px"></li>
+              <li style="background:url('static/img/page3/mark/sprite30x52.png') no-repeat -90px 0px"></li>
+              <li style="background:url('static/img/page3/mark/sprite30x52.png') no-repeat -120px 0px"></li>
+              <li style="background:url('static/img/page3/mark/sprite30x52.png') no-repeat -150px 0px"></li>
+              <li style="background:url('static/img/page3/mark/sprite30x52.png') no-repeat -180px 0px"></li>
+              <li style="background:url('static/img/page3/mark/sprite30x52.png') no-repeat -210px 0px"></li>
+              <li style="background:url('static/img/page3/mark/sprite30x52.png') no-repeat -240px 0px"></li>
+              <li style="background:url('static/img/page3/mark/sprite30x52.png') no-repeat -270px 0px"></li>
+              <li style="background:url('static/img/page3/mark/sprite30x52.png') no-repeat -300px 0px"></li>-->
             </ul>
           </div>
           <!-- 书内容 -->
-          <div class="book-content" id="book-content">
-            <div style="background:url('static/img/page3/book-content/person1.jpg') center top no-repeat;background-size:100%"></div>
-            <div style="background:url('static/img/page3/book-content/person2.jpg') center top no-repeat;background-size:100%"></div>
-            <div style="background:url('static/img/page3/book-content/person3.jpg') center top no-repeat;background-size:100%"></div>
-            <div style="background:url('static/img/page3/book-content/person4.jpg') center top no-repeat;background-size:100%"></div>
+          <div class="wrap" style="width: 100%;height: 100%">
+            <div class="flipbook" id="flipbook">
+              <!--<div style="background:url('./static/img/page3/book-content/storyTest.jpg') center no-repeat;background-size:100%"></div>
+              <div style="background:url('./static/img/page3/book-content/person2.jpg') center no-repeat;background-size:100%"></div>
+              <div style="background:url('./static/img/page3/book-content/person3.jpg') center no-repeat;background-size:100%"></div>
+              <div style="background:url('./static/img/page3/book-content/person4.jpg') center no-repeat;background-size:100%"></div>-->
+              <div>
+                <img src="./static/img/page3/book-content/storyTest.jpg" alt="">
+              </div>
+              <div>
+                <img src="./static/img/page3/book-content/person2.jpg" alt="">
+              </div>
+              <div>
+                <img src="./static/img/page3/book-content/person3.jpg" alt="">
+              </div>
+              <div>
+                <img src="./static/img/page3/book-content/person4.jpg" alt="">
+              </div>
+
+
+
+
+            </div>
           </div>
+
+          <!--<div class="flipbook" id="flipbook">
+            <div style="background:url('image/0001.jpg') center top no-repeat;background-size:100%"></div>
+            <div style="background:url('image/0002.jpg') center top no-repeat;background-size:100%"></div>
+            <div style="background:url('image/0003.jpg') center top no-repeat;background-size:100%"></div>
+            <div style="background:url('image/0004.jpg') center top no-repeat;background-size:100%"></div>
+            <div style="background:url('image/0005.jpg') center top no-repeat;background-size:100%"></div>
+            <div style="background:url('image/0006.jpg') center top no-repeat;background-size:100%"></div>
+            <div style="background:url('image/0007.jpg') center top no-repeat;background-size:100%"></div>
+          </div>-->
           <!--<ul id="book_content">
               <li>
                 <img src="static/img/page3/book-content/person1.jpg" alt="">
@@ -169,7 +227,7 @@
                 <img src="static/img/page3/book-content/person4.jpg" alt="">
               </li>
             </ul>-->
-          <img class="bgc" src="static/img/page3/background-bottom.png" alt="">
+          <img class="bgc" src="static/img/page3/book320X403.png" alt="loading">
         </div>
       </div>
     </div>
@@ -242,7 +300,10 @@
 </style>
 </html>
 <script>
-  $("#book-content").turn({
+
+
+
+  /*$("#flipbook").turn({
     width: 200,
     height: 300,
     autoCenter: true,
@@ -252,10 +313,10 @@
     acceleration: true, //设置硬件加速模式，对于触摸设备这个值必须是真的
     gradients: true,  //在转换过程中显示渐变和阴影。
     when:{
-      /*turned: function (e, page, view) {
+      /!*turned: function (e, page, view) {
        console.log(page);
-       }*/
+       }*!/
     }
-  });
+  });*/
 
 </script>
