@@ -1,7 +1,9 @@
+
 require('./css/index.css')
 require('./css/page1.css')
 require('./css/page2.css')
 require('./css/page3.css')
+require('./js/init')
 // require('./css.css')
 // require('./js/smoke/page1smoke')
 const pageSize = require('./js/pageSize')
@@ -20,7 +22,9 @@ const move = require('./js/touchMove')
   })
 }*/
 
+window.onload = function () {
 
+}
 
 const winH = pageSize.winH
 const winW = pageSize.winW

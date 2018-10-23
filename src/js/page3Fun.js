@@ -1,21 +1,19 @@
 const changePage = require('./changePage')
-const {page3, book, book_content,page3_title, page3_info, page3_logo, mark_ul} = require('./getElement')
+const {page3, book, book_content,page3_title, page3_info, page3_logo, mark_ul, page2_background} = require('./getElement')
+const pageSize = require('./pageSize')
 const velocity = require('velocity-animate')
 require('velocity-animate/velocity.ui');
-
-setTimeout(() => {
-  const changeBookPage = require('./animate/changeBookPage')
-
-},2000)
+const changeBookPage = require('./animate/changeBookPage')
+const globalAnimate = require('./globalAnimate')
 
 
-let imgFinish = false
+let imgBigFinish = false
 
 export let pullUp = function () {
     /* 放大图片 只放大一次 */
-    if (!imgFinish) {
+    if (!imgBigFinish) {
       enlargeImg()
-      imgFinish = true
+      imgBigFinish = true
     } else {
       return
     }
@@ -23,13 +21,57 @@ export let pullUp = function () {
 }
 
 export let pullDown = function () {
-    changePage.goUp()
+  /* 如果图片已经放大了 那么缩小 */
+    if (imgBigFinish) {
+      reduceImg()
+      imgBigFinish = false
+    } else {
+      // changePage.goUp()
+      /* 返回视频页 */
+      globalAnimate.backToPage2()
+    }
+
 }
+/* 拉书带动的3个图变化 */
+function up() {
+  $('#index_logo').animate({
+    marginTop: '0%',
+    opacity: '0'
+  }, 300)
+
+  $('#page3_title').animate({
+    top: '20%',
+    width: '45%'
+  }, 300)
+
+  $('#page3_info').animate({
+    top: '35%',
+    width: '50%'
+  }, 300)
+}
+function down() {
+  $('#index_logo').animate({
+    marginTop: '10%',
+    opacity: '1'
+  }, 300)
+
+  $('#page3_title').animate({
+    top: '50%',
+    width: '55%'
+  }, 300)
+
+  $('#page3_info').animate({
+    top: '65%',
+    width: '65%'
+  }, 300)
+}
+
+
 /* 把书拉上来 */
 export let enlargeImg = function () {
   /* 让logo彻底不显示  否则会在第二页显示 */
-  page3.children[0].style.overflow = 'hidden'
-
+  // page3.children[0].style.overflow = 'hidden'
+  up()
   /* 书往上拉效果 */
   Velocity(book, {
     top: '0'
@@ -39,7 +81,10 @@ export let enlargeImg = function () {
   });
 
   /* 修改标题 3行字 位置 */
-  Velocity(page3_logo, {
+
+
+
+  /*Velocity(page3_logo, {
     top: '-50px'
   }, {
     duration: 200,
@@ -47,9 +92,9 @@ export let enlargeImg = function () {
     complete() {
 
     }
-  });
+  });*/
 
-  Velocity(page3_title, {
+  /*Velocity(page3_title, {
     top: '8%',
     width: '45%'
   }, {
@@ -62,8 +107,21 @@ export let enlargeImg = function () {
   }, {
     duration: 200,
     easing: "swing"
+  });*/
+}
+/* 把书推回去 */
+export let reduceImg = function () {
+  /* 书往下推效果 */
+  down()
+  /* page3.css 里 .page3 .page3-bottom .book  的 top 值 */
+  Velocity(book, {
+    top: '23%'
+  }, {
+    duration: 200,
+    // easing: "swing"
   });
 }
+
 
 /* 翻书方法 */
 export let pullLeft = function () {

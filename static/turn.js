@@ -23,7 +23,7 @@
 
         A90 = PI / 2,
 
-        isTouch = 'ontouchstart111' in window,
+        isTouch = 'ontouchstart' in window,
 
         mouseEvents = (isTouch) ?
         {

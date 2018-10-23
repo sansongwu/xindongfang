@@ -25,7 +25,7 @@
   transform: translateX(-50%);
   width: 55%;
   top:50%;
-
+  display: none;
 }
 .page3 .page3-top .title img {
   display: block;

@@ -24,6 +24,33 @@ ul,li {
   left: 0;
 }
 
+.index-logo {
+  margin-top: 10%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 25%;
+  z-index: 40;
+}
+.index-logo img {
+  display: block;
+  width: 100%;
+}
+.index-title {
+  margin-top: 20%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  z-index: 40;
+}
+.index-title img {
+  display: block;
+  width: 100%;
+}
+
+
+
 .page1 {
   height: 200px;
   width: 100%;
@@ -32,9 +59,11 @@ ul,li {
   /*background-position:center;
   background-size: 100%;*/
   color: #ffffff;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   overflow: hidden;
-  z-index: 12;
+  z-index: 30;
 }
 .page1 .smokes {
   position: absolute;
@@ -52,13 +81,19 @@ ul,li {
   width: 100%;
   background-color: green;
   color: #ffffff;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  opacity: 0;
 }
 .page3 {
   height: 200px;
   width: 100%;
-  background-color: chocolate;
-  color: #ffffff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 21;
   /*background-image: url("../../static/img/page3/background-top.jpg");
   background-repeat: no-repeat;
   background-position:top;

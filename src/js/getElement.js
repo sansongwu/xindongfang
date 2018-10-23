@@ -3,6 +3,7 @@
  */
 module.exports = {
   page1: document.getElementById('page1'),
+  page2: document.getElementById('page2'),
   page3: document.getElementById('page3'),
   poetry: document.getElementById('poetry'),
   book: document.getElementById('book'),
@@ -13,6 +14,9 @@ module.exports = {
   book_content: document.getElementById('book_content'),
   audio2: document.getElementById('audio2'),
   video: document.getElementById('video'),
+  page2_background: document.getElementById('page2_background'),
+  index_logo: document.getElementById('index_logo'),
+  index_title: document.getElementById('index_title'),
 
 
 }

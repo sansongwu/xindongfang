@@ -1,14 +1,16 @@
 const changePage = require('./changePage')
-const {page1, poetry, audio2, video} = require('./getElement')
+const {page1, page2, page3, poetry, audio2, video} = require('./getElement')
+const state = require('./state')
 const velocity = require('velocity-animate')
 require('velocity-animate/velocity.ui');
+const globalAnimate = require('./globalAnimate')
 
 export let pullUp = function () {
   // audio2.play()
-  video.play()
-  changePage.goDown()
+  // video.play()
+  // changePage.goDown()
 }
-
+/* 背景变化 */
 setTimeout(() => {
   Velocity(page1, {
     backgroundSize: "120%"
@@ -16,6 +18,56 @@ setTimeout(() => {
     duration: 8000,
   });
 }, 1000)
+
+let list = poetry.children
+for (let i = 0; i < list.length; i ++) {
+
+  setTimeout(() => {
+    /* 当最后一行出来之后 page1 淡出 page2淡入 */
+    if (i == list.length-1) {
+    // if (i == 0) {
+      /* 淡出page1 */
+      Velocity(page1, {
+        opacity: "0"
+      }, {
+        duration: 1000,
+        complete() {
+          /* 开始播放背景视频 */
+          video.play()
+          /* 关闭page1 */
+          page1.style.display = 'none'
+          /* 修改page1 state */
+          state.page1Ready = true
+        }
+      });
+
+      /* 淡入page2 */
+      Velocity(page2, {
+        opacity: "1"
+      }, {
+        duration: 1000,
+        complete() {
+          /* 视频播放完执行 */
+          setTimeout(() => {
+            if (!state.page3showed) {
+              globalAnimate.autoVideoFinish()
+            }
+          }, 5000)
+        }
+      });
+    }
+
+    /* 诗词一行一行显示 */
+    Velocity(list[i].children[0], {
+      opacity: "1"
+    }, {
+      duration: 500,
+    });
+  }, 800*i)
+}
+
+
+
 
 /*let list = poetry.children
 let delay
@@ -35,14 +87,3 @@ for (let i = 0; i < list.length; i ++) {
   }, delay)
 }*/
 
-let list = poetry.children
-for (let i = 0; i < list.length; i ++) {
-
-  setTimeout(() => {
-    Velocity(list[i].children[0], {
-      opacity: "1"
-    }, {
-      duration: 500,
-    });
-  }, 800*i)
-}

@@ -18,9 +18,9 @@
 });*/
 
 export let nextPage = function () {
-  $(".book_content").turn("next")
+  $(".book-content").turn("next")
 }
 
 export let backPage = function () {
-  $(".book_content").turn("previous")
+  $(".book-content").turn("previous")
 }
