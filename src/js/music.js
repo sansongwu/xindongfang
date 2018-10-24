@@ -3,6 +3,11 @@
  */
 
 
+
+
+
+
+
 /*function playPause() {
   var music = document.getElementById('music2');
   var music_btn = document.getElementById('music_btn2');
@@ -21,7 +26,7 @@ window.onload = function() {
 }*/
 
 /* 微信自动播放音乐 */
-function  audioAutoPlay(id){
+/*function  audioAutoPlay(id){
   var audio = document.getElementById(id);
 
   if (window.WeixinJSBridge) {
@@ -38,7 +43,7 @@ function  audioAutoPlay(id){
   audio.play();
 
   return false;
-}
+}*/
 // audioAutoPlay('audio2')
 
 

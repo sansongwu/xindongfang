@@ -18,6 +18,7 @@ module.exports = {
   index_logo: document.getElementById('index_logo'),
   index_title: document.getElementById('index_title'),
   cover: document.getElementById('cover'),
+  book_bgc: document.getElementById('book_bgc'),
 
 
 }

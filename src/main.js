@@ -1,42 +1,55 @@
-
-require('./css/index.css')
 require('./css/page1.css')
+require('./css/index.css')
+
 require('./css/page2.css')
 require('./css/page3.css')
-require('./css/video.css')
-require('./js/init')
+require('./css/arrow.css')
+// require('./css/video.css')
+
 // require('./css.css')
 // require('./js/smoke/page1smoke')
-const pageSize = require('./js/pageSize')
-const music = require('./js/music')
-const video = require('./js/video')
-
-
-const move = require('./js/touchMove')
-
-/* 图片预加载 */
-/*window.onload = function () {
-  const preLoading = require('./js/imgPreloading')
-  preLoading.loading(() => {
-    const changePage = require('./js/animate/changeBookPage')
-    const move = require('./js/touchMove')
-  })
-}*/
 
 
 
-const winH = pageSize.winH
-const winW = pageSize.winW
+
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('DOMContentLoaded事件')
+  console.log('DOMContentLoaded')
+
+
+
+  const pageSize = require('./js/pageSize')
+  const winH = pageSize.winH
+  const winW = pageSize.winW
+
+
     document.getElementById('page1').style.height = winH + 'px'
     document.getElementById('page2').style.height = winH + 'px'
     document.getElementById('page3').style.height = winH + 'px'
-    document.getElementById('page4').style.height = winH + 'px'
 
 })
 
+window.onload = function () {
+  console.log('window.onload')
+  document.getElementById('loading_div').style.display = 'none'
+  require('./js/init')
+
+  const music = require('./js/music')
+  const video = require('./js/video')
+
+
+  const move = require('./js/touchMove')
+
+  /* 图片预加载 */
+  /*window.onload = function () {
+    const preLoading = require('./js/imgPreloading')
+    preLoading.loading(() => {
+      const changePage = require('./js/animate/changeBookPage')
+      const move = require('./js/touchMove')
+    })
+  }*/
+
+}
 /*$("#flipbook").turn({
   width: pageSize.winW,
   height: 300,

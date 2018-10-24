@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script type="text/javascript" src="./static/jquery.min.js"></script>
   <script type="text/javascript" src="./static/turn.js"></script>
+  <!--<script type="text/javascript" src="./static/inobounce.min.js"></script>-->
   <title>Hello World</title>
   <!--<script type="text/javascript" src="./static/smoke.js"></script>-->
   <!--<script type="text/javascript" src="./static/staticTest.js"></script>-->
@@ -15,6 +16,13 @@
 </head>
 
 <body>
+<div class="loadingDiv" id="loading_div" style="width: 100%;
+  height: 100%;
+  background-color: #111111;
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;"></div>
 <div class="wrap" id="wrap">
   <div class="contents" id="contents">
     <div class="music">
@@ -28,7 +36,7 @@
         Your browser does not support the <code>audio</code> element.
       </audio>-->
 
-      <!--<audio id="audio2" style="display: none;" src="./static/music/music.m4a" preload="auto" loop="loop" autoplay="autoplay"></audio>-->
+      <audio id="audio2" style="display: none;" src="./static/music/music.m4a" preload="auto" loop="loop" autoplay="autoplay"></audio>
 
     </div>
     <div class="index-logo" id="index_logo">
@@ -37,8 +45,9 @@
     <div class="index-title" id="index_title">
       <img src="static/img/page1/title.png" alt="">
     </div>
-    <div class="page1" id="page1" style="background:url('static/img/page1/background.jpg') center no-repeat;background-size:100%" >
+    <div class="page1" id="page1">
 
+      <img class="page1-background" id="page1_background" src="./static/img/page1/background.jpg" alt="">
       <!--第一页内容-->
       <div class="content">
 
@@ -83,17 +92,18 @@
         <canvas></canvas>
         <canvas></canvas>
       </div>
+      <!--下拉箭头-->
+      <div class="page1arrow" id="page1_arrow">
+        <div class="arrow1"></div>
+        <div class="arrow2"></div>
+      </div>
     </div>
     <!-- 第二页开始 -->
     <div class="page2" id="page2">
       <img class="page2-background" id="page2_background" src="./static/img/page1/background.jpg" alt="loading">
-      <!--style="width:100%; height:100%; object-fit: fill;"-->
-      <!--<video class="video" loop="loop" id="video" x5-video-player-type="h5" x5-video-player-fullscreen="true">
-        <source class="video-source"  src="./static/video/video.mp4"  type="video/mp4" >;
-        您的浏览器不支持 video 标签。
-      </video>-->
 
-      <video
+
+      <!--<video
         id="video1"
         :src="./static/video/video.mp4"
         preload="auto"
@@ -106,7 +116,23 @@
         x5-video-orientation="portraint"
         style="object-fit:fill">
 
-      </video>
+      </video>-->
+      <video id="videoID2"
+             style="object-fit: fill;"
+             x-webkit-airplay="true"
+             playsinline="true"
+             x5-video-player-type="h5"
+             x5-video-player-fullscreen="true"
+             width="100%"
+             preload="auto"
+             loop="loop"
+             src="./static/video/video.mp4"
+
+
+             webkit-playsinline="true"
+      ></video>
+
+
 
     </div>
 
@@ -179,12 +205,17 @@
             </ul>
           </div>
           <!-- 书内容 -->
-          <div class="wrap" style="width: 100%;height: 100%">
+          <div class="book-content">
+            <div class="item">
+              <img src="./static/img/page3/book-content/storyTest.jpg" alt="">
+            </div>
+          </div>
+          <!--<div class="wrap" style="width: 100%;height: 100%">
             <div class="flipbook" id="flipbook">
-              <!--<div style="background:url('./static/img/page3/book-content/storyTest.jpg') center no-repeat;background-size:100%"></div>
+              &lt;!&ndash;<div style="background:url('./static/img/page3/book-content/storyTest.jpg') center no-repeat;background-size:100%"></div>
               <div style="background:url('./static/img/page3/book-content/person2.jpg') center no-repeat;background-size:100%"></div>
               <div style="background:url('./static/img/page3/book-content/person3.jpg') center no-repeat;background-size:100%"></div>
-              <div style="background:url('./static/img/page3/book-content/person4.jpg') center no-repeat;background-size:100%"></div>-->
+              <div style="background:url('./static/img/page3/book-content/person4.jpg') center no-repeat;background-size:100%"></div>&ndash;&gt;
               <div>
                 <img src="./static/img/page3/book-content/storyTest.jpg" alt="">
               </div>
@@ -202,7 +233,7 @@
 
 
             </div>
-          </div>
+          </div>-->
 
           <!--<div class="flipbook" id="flipbook">
             <div style="background:url('image/0001.jpg') center top no-repeat;background-size:100%"></div>
@@ -213,91 +244,18 @@
             <div style="background:url('image/0006.jpg') center top no-repeat;background-size:100%"></div>
             <div style="background:url('image/0007.jpg') center top no-repeat;background-size:100%"></div>
           </div>-->
-          <!--<ul id="book_content">
-              <li>
-                <img src="static/img/page3/book-content/person1.jpg" alt="">
-              </li>
-              <li>
-                <img src="static/img/page3/book-content/person2.jpg" alt="">
-              </li>
-              <li>
-                <img style="display: block" src="static/img/page3/story/01.png" alt="">
-              </li>
-              <li>
-                <img src="static/img/page3/book-content/person4.jpg" alt="">
-              </li>
-            </ul>-->
-          <img class="bgc" src="static/img/page3/book320X403.png" alt="loading">
+
+          <img class="bgc" id="book_bgc" src="" data-src="static/img/page3/book320X403.png" alt="loading">
         </div>
       </div>
     </div>
-    <div class="page4" id="page4">
 
-    </div>
+
   </div>
 </div>
 
 </body>
 
-
-<style>
-  html, body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-
-  }
-
-  /*.wrap {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      position: relative;
-  }
-
-  .contents {
-      position: absolute;
-      left: 0;
-      right: 0;
-      background-color: #212121;
-  }
-
-  .page1 {
-      height: 200px;
-      width: 100%;
-      background-color: brown;
-      color: #ffffff;
-  }
-
-  .page2 {
-      height: 200px;
-      width: 100%;
-      background-color: green;
-      color: #ffffff;
-  }
-  .page3 {
-      height: 200px;
-      width: 100%;
-      background-color: chocolate;
-      color: #ffffff;
-  }
-  .page3 .page3-top {
-      height: 30%;
-      width: 100%;
-      background-color: aqua;
-  }
-  .page3 .page3-bottom {
-      height: 70%;
-      width: 100%;
-      background-color: darkorange;
-  }
-  .page4 {
-      height: 200px;
-      width: 100%;
-      background-color: cadetblue;
-      color: #ffffff;
-  }*/
-</style>
 </html>
 <script>
 

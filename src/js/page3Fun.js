@@ -115,7 +115,7 @@ export let reduceImg = function () {
   down()
   /* page3.css 里 .page3 .page3-bottom .book  的 top 值 */
   Velocity(book, {
-    top: '23%'
+    top: '38%'
   }, {
     duration: 200,
     // easing: "swing"

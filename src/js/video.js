@@ -3,11 +3,81 @@
  */
 const pageSize = require('./pageSize')
 
-let video = document.getElementById('video1')
-video.style.width = pageSize.winW
+/*let video = document.getElementById('video1')
+video.style.width = pageSize.winW*/
+
+let target = document.getElementById('videoID2')
+let ua = window.navigator.userAgent
+console.log(ua)
+/*if (ua.indexOf('MicroMessenger') > 0) {
+  //在微信中打开
+  autoPlayAudio('videoID2');
+  audioAutoPlay('audio2')
+} else {
+  // alert('不在微信中')
+   $('#videoID2').get(0).play();
+   $('#audio2').get(0).play();
+}*/
+
+/*document.addEventListener('touchstart', function () {
+  target.play()
+
+})*/
+
+export let runVideo = function (id) {
+  let video = document.getElementById(id);//video标签id=media
+  if (window.WeixinJSBridge) {
+    WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+      video.play();
+    }, false);
+  } else {
+    document.addEventListener("WeixinJSBridgeReady", function () {
+      WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+        video.play();
+      });
+    }, false);
+  }
+  video.play();
 
 
-videoMethod(video);
+}
+
+
+/* 视频 自动播放 */
+function autoPlayAudio(id) {
+  var video = document.getElementById(id);//video标签id=media
+
+  if (window.WeixinJSBridge) {
+    WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+      video.play();
+    }, false);
+  } else {
+    document.addEventListener("WeixinJSBridgeReady", function () {
+      WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+        video.play();
+      });
+    }, false);
+  }
+  video.play();
+
+  return false;
+}
+
+
+
+target.style.width = window.innerWidth + "px";
+target.style.height = window.innerHeight + "px";
+window.onresize = function () {
+
+}
+
+
+
+
+
+
+
+/*videoMethod(video);
 
 function videoMethod(video) {
   video.addEventListener('touchstart', function () {
@@ -31,15 +101,15 @@ function videoMethod(video) {
   })
   //退出全屏
   video.addEventListener("x5videoexitfullscreen", function(){
-    /*window.onresize = function(){
+    /!*window.onresize = function(){
       video.style.width = 原尺寸;
       video.style.height = 原尺寸;
-    }*/
+    }*!/
 
   })
-}
+}*/
 
-require('iphone-inline-video')
+// require('iphone-inline-video')
 
 
 /* 微信自动播放视频  */

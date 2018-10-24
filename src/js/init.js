@@ -1,5 +1,5 @@
 const pageSize = require('./pageSize')
-const {page3} = require('./getElement')
+const {page3, book_bgc} = require('./getElement')
 
 /* 初始化第三页 位置 */
 page3.style.top = pageSize.winH + 'px'
@@ -15,6 +15,11 @@ function imgTimeLazyLoad(arr) {
 
   }
 }
+setTimeout(() => {
+  book_bgc.src = book_bgc.getAttribute('data-src')
+}, 4000)
+
+
 let p = new Promise((resolve, reject) => {
   setTimeout(function () {
     /*let str = '<div style="background:url(\'static/img/page3/book-content/storyTest.jpg\') center no-repeat;background-size:100%"></div>'+
@@ -25,7 +30,7 @@ let p = new Promise((resolve, reject) => {
     resolve()
   }, 1000)
 }).then(() => {
-  $("#flipbook").turn({
+  /*$("#flipbook").turn({
     width: 400,
     height: 1000,
     autoCenter: true,
@@ -35,10 +40,10 @@ let p = new Promise((resolve, reject) => {
     acceleration: true, //设置硬件加速模式，对于触摸设备这个值必须是真的
     gradients: true,  //在转换过程中显示渐变和阴影。
     when:{
-      /*turned: function (e, page, view) {
+      /!*turned: function (e, page, view) {
        console.log(page);
-       }*/
+       }*!/
     }
-  });
+  });*/
 })
 
