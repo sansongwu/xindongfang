@@ -3,6 +3,7 @@ require('./css/index.css')
 
 require('./css/page2.css')
 require('./css/page3.css')
+require('./css/page3Text.css')
 require('./css/arrow.css')
 // require('./css/video.css')
 

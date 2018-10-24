@@ -5,7 +5,7 @@ const velocity = require('velocity-animate')
 require('velocity-animate/velocity.ui');
 const changeBookPage = require('./animate/changeBookPage')
 const globalAnimate = require('./globalAnimate')
-
+import  BScroll from 'better-scroll'
 
 let imgBigFinish = false
 
@@ -183,6 +183,35 @@ function setMark(pageNum) {
 
 
 }
+
+let strArr = [
+  ['我在做新东方的过程中，从没有放弃阅读，','从大学毕业到现在，每年阅读一百多本书，','认真反复读的书达到十几本到二十本。','我家里的纸质书籍有一万多本，每个月还在以30—50本的速度增加，',
+    '每年购买新书的数量是500多本，再加上出版社寄给我的就更多了。','&nbsp;','认准一件事，就坚持做下去。','&nbsp','其实这个世界上任何的成功都是需要反复努力才能达成的。',
+    '爱情需要努力，学习需要努力，未来的事业更需要努力，','人生一辈子想要有所得，必须不断努力。','&nbsp','人的每一天都是很琐碎的，','把每天做的事情比喻成每天捡一块砖头的话，',
+    '大部分人一辈子到最后只是捡了一堆砖头。','对于有些人来说他的琐碎是为了给自己的人生添砖加瓦，','他们的每一块砖都会变成自己理想的铺垫，从而盖起自己的理想大厦。'],
+  ['我在做新东方的过程中，从没有放弃阅读，','从大学毕业到现在，每年阅读一百多本书，','认真反复读的书达到十几本到二十本。','我家里的纸质书籍有一万多本，每个月还在以30—50本的速度增加，',
+    '每年购买新书的数量是500多本，再加上出版社寄给我的就更多了。',' ','认准一件事，就坚持做下去。',' ','其实这个世界上任何的成功都是需要反复努力才能达成的。',
+    '爱情需要努力，学习需要努力，未来的事业更需要努力，','人生一辈子想要有所得，必须不断努力。',' ','人的每一天都是很琐碎的，','把每天做的事情比喻成每天捡一块砖头的话，',
+    '大部分人一辈子到最后只是捡了一堆砖头。','对于有些人来说他的琐碎是为了给自己的人生添砖加瓦，','他们的每一块砖都会变成自己理想的铺垫，从而盖起自己的理想大厦。']
+]
+
+let text = document.getElementById('text')
+/* 设置文本框内容 */
+function setText(num) {
+  let arr = strArr[num]
+  let str = ''
+  for (let i = 0; i < arr.length; i ++) {
+    str += '<p>'+arr[i]+'</p>'
+  }
+  text.innerHTML = str
+}
+
+setText(0)
+
+let scroll = new BScroll('#text_wrap', {
+  stopPropagation: true,
+  preventDefault: true
+})
 
 /*book_content.children[0].children[0].onload = function () {
   let time = new Date()

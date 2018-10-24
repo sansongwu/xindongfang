@@ -33,8 +33,8 @@ for (let i = 0; i < list.length; i ++) {
 
   setTimeout(() => {
     /* 当最后一行出来之后 page1 淡出 page2淡入 */
-    if (i == list.length-1) {
-    // if (i == 0) {
+    // if (i == list.length-1) {
+    if (i == 0) {
     //   page1ToPage2()
       /* 修改page1 state */
       state.page1Ready = true

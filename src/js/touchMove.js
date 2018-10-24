@@ -19,13 +19,14 @@ function touchStart(e) {
     /* end必须初始和 start 一样 否则 end没值  单机也会触发滚动 */
     moveEndY = moveStartY
     moveEndX = moveStartX
+  e.preventDefault()
 }
 
 function touchMove(e) {
     let touch = e.touches[0]
     moveEndY = touch.pageY
     moveEndX = touch.pageX
-
+  console.log('move')
 }
 
 /* 计算差值 在end事件中先执行 */
@@ -36,8 +37,8 @@ function end() {
 
 
 function move() {
-    document.body.addEventListener("touchstart", touchStart, false);
-    document.body.addEventListener("touchmove", touchMove, false);
+    document.addEventListener("touchstart", touchStart, false);
+    document.addEventListener("touchmove", touchMove, false);
 
     //document.body.addEventListener("touchend", touchEnd, false);
 }
@@ -124,12 +125,19 @@ page2.addEventListener('touchend', function () {
     strategies.pullUp(page2Fun.pullUp)
     strategies.pullDown(page2Fun.pullDown)
 })
-page3.addEventListener('touchend', function () {
+page3.addEventListener('touchend', function (e) {
     end()
     console.log('page3 end')
     strategies.allDirection(page3Fun.pullUp, page3Fun.pullDown, page3Fun.pullLeft, page3Fun.pullRight)
     /*strategies.pullUp(page3Fun.pullUp)
     strategies.pullDown(page3Fun.pullDown)*/
+})
+page3.addEventListener('touchcancel', function (e) {
+  end()
+  console.log('page3 end')
+  strategies.allDirection(page3Fun.pullUp, page3Fun.pullDown, page3Fun.pullLeft, page3Fun.pullRight)
+  /*strategies.pullUp(page3Fun.pullUp)
+   strategies.pullDown(page3Fun.pullDown)*/
 })
 // page4.addEventListener('touchend', function () {
 //     end()

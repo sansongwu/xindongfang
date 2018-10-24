@@ -1,0 +1,22 @@
+.text-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 51%;
+  width: 70%;
+  height: 50%;
+  background-color: #f3ede4;
+  transform: translateX(-50%);
+  z-index: 101;
+  overflow: hidden;
+  /*border: 2px solid #000000;*/
+  padding: 5%;
+  box-sizing: border-box;
+}
+
+.text-wrap p {
+  /*background-color: #5E740B;*/
+  margin: 0;
+  font-size: 12px;
+  color: #222222;
+}
+
