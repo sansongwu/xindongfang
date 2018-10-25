@@ -2,17 +2,22 @@ const page1Fun = require('./page1Fun')
 const page2Fun = require('./page2Fun')
 const page3Fun = require('./page3Fun')
 const {cover} = require('./getElement')
+const state= require('./state')
 // const page4Fun = require('./page4Fun')
 
 let moveStartY, moveEndY, diffY, moveStartX, moveEndX, diffX
 /* 滑动的有效距离 */
-const effectiveY = 160
-const effectiveX = 60
+const effectiveY = 80
+const effectiveX = 40
 const effectiveDiff = effectiveY - effectiveX
 
 const currentPageNum = 0
 
+
+
 function touchStart(e) {
+  console.log('start-----------')
+  state.touchFromPage = true
     let touch = e.touches[0]
     moveStartY = touch.pageY
     moveStartX = touch.pageX
@@ -100,6 +105,9 @@ let strategies = {
         if (Math.abs(diffY) >= Math.abs(diffX)) {
             this.upDown(up, down)
         } else {
+            console.log(Math.abs(diffY) >= Math.abs(diffX))
+            console.log(Math.abs(diffY))
+            console.log(Math.abs(diffX))
             this.leftRight(left, right)
         }
     }
@@ -126,6 +134,9 @@ page2.addEventListener('touchend', function () {
     strategies.pullDown(page2Fun.pullDown)
 })
 page3.addEventListener('touchend', function (e) {
+    if (!state.touchFromPage) {
+      return
+    }
     end()
     console.log('page3 end')
     strategies.allDirection(page3Fun.pullUp, page3Fun.pullDown, page3Fun.pullLeft, page3Fun.pullRight)
@@ -133,6 +144,9 @@ page3.addEventListener('touchend', function (e) {
     strategies.pullDown(page3Fun.pullDown)*/
 })
 page3.addEventListener('touchcancel', function (e) {
+  if (!state.touchFromPage) {
+    return
+  }
   end()
   console.log('page3 end')
   strategies.allDirection(page3Fun.pullUp, page3Fun.pullDown, page3Fun.pullLeft, page3Fun.pullRight)

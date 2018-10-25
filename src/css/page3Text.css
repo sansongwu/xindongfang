@@ -5,7 +5,8 @@
   left: 51%;
   width: 70%;
   height: 36%;
-  background-color: #f3ede4;
+  /*background-color: #f3ede4;*/
+  background-color: rgba(0,0,0,0);
   transform: translateX(-50%);
   z-index: 101;
   overflow: hidden;

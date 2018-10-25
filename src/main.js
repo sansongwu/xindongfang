@@ -31,16 +31,29 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 window.onload = function () {
+
+
+  document.getElementById('audio2').addEventListener('loadeddata', function () {
+    alert('音乐加载完毕')
+  })
+  document.getElementById('audio2').addEventListener('loadstart', function () {
+    alert('音乐加载完毕')
+  })
+  document.getElementById('audio2').addEventListener('durationchange', function () {
+    alert('音乐加载完毕')
+  })
+
   console.log('window.onload')
   document.getElementById('loading_div').style.display = 'none'
   require('./js/init')
+  require('./css/changebookpage.css')
 
   const music = require('./js/music')
   const video = require('./js/video')
 
 
   const move = require('./js/touchMove')
-
+  require('./js/changeBookPage')
   /* 图片预加载 */
   /*window.onload = function () {
     const preLoading = require('./js/imgPreloading')

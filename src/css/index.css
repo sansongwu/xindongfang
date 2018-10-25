@@ -26,7 +26,7 @@ ul,li {
   height: 100%;
   left: 0;
   right: 0;
-  background-color: #212121;
+  /*background-color: #212121;*/
 }
 
 .music {
@@ -48,12 +48,12 @@ ul,li {
   width: 100%;
 }
 .index-title {
-  margin-top: 20%;
+  margin-top: 15%;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
   width: 40%;
-  z-index: 40;
+  z-index: 21;
 }
 .index-title img {
   display: block;
@@ -65,7 +65,7 @@ ul,li {
 .page1 {
   height: 100%;
   width: 100%;
-  background-color: black;
+  /*background-color: black;*/
   /*background-image: url("../../static/img/page1/background.jpg");*/
   /*background-position:center;
   background-size: 100%;*/

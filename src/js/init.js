@@ -10,10 +10,10 @@ page3.style.top = pageSize.winH + 'px'
 
 
 
-/* 懒加载 */
+/* 懒加载  把img标签的  data-src 赋值给 src*/
 function imgTimeLazyLoad(arr) {
   for (let i = 0; i < arr.length; i++) {
-
+    arr[i].children[0].src = arr[i].children[0].getAttribute('data-src')
   }
 }
 setTimeout(() => {
@@ -23,13 +23,10 @@ setTimeout(() => {
 
 let p = new Promise((resolve, reject) => {
   setTimeout(function () {
-    /*let str = '<div style="background:url(\'static/img/page3/book-content/storyTest.jpg\') center no-repeat;background-size:100%"></div>'+
-      '<div style="background:url(\'static/img/page3/book-content/person2.jpg\') center no-repeat;background-size:100%"></div>'+
-      '<div style="background:url(\'static/img/page3/book-content/person3.jpg\') center no-repeat;background-size:100%"></div>'+
-      '<div style="background:url(\'static/img/page3/book-content/person4.jpg\') center no-repeat;background-size:100%"></div>'
-    $('#flipbook').html(str)*/
+    let target = document.getElementById('flipbook').children
+    imgTimeLazyLoad(target)
     resolve()
-  }, 1000)
+  }, 4000)
 }).then(() => {
   $("#flipbook").turn({
     width: pageSize.winW,

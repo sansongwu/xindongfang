@@ -68,7 +68,8 @@ function autoPlayAudio(id) {
 target.style.width = window.innerWidth + "px";
 target.style.height = window.innerHeight + "px";
 window.onresize = function () {
-
+  target.style.width = window.innerWidth + "px";
+  target.style.height = window.innerHeight + "px";
 }
 
 

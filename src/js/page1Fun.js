@@ -10,8 +10,10 @@ export let pullUp = function () {
   // audio2.play()
   // video.play()
   // changePage.goDown()
+  /* 如果诗词出来了  才能去下一页 */
   if (state.page1Ready) {
     page1ToPage2()
+    /* 开始播放视频 */
     videoFun.runVideo('videoID2')
   }
 

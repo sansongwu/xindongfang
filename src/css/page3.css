@@ -167,6 +167,7 @@
   position: absolute;
   left: 0;
   bottom: 0;
+  z-index: 101;
 }
 
 .page3 .page3-bottom .book .flipbook {
@@ -174,7 +175,7 @@
   height: 100%;
   position: absolute;
   left:0;
-  top:0;
+  bottom:0;
   transform: translateX(-50%);
   z-index: 100;
 }
