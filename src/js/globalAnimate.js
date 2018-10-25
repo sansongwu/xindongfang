@@ -134,3 +134,4 @@ export let backToPage2 = function () {
   })*/
 
 }
+

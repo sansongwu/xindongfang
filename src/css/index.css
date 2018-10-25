@@ -53,7 +53,7 @@ ul,li {
   left: 50%;
   transform: translateX(-50%);
   width: 40%;
-  z-index: 21;
+  z-index: 31;
 }
 .index-title img {
   display: block;
@@ -110,7 +110,7 @@ ul,li {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 21;
+  z-index: 35;
   /*background-image: url("../../static/img/page3/background-top.jpg");
   background-repeat: no-repeat;
   background-position:top;

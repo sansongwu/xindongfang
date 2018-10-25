@@ -1,6 +1,19 @@
 const pageSize = require('./pageSize')
 const {page3, book_bgc} = require('./getElement')
 const {contentHeight} = require('./bookPosition')
+import  BScroll from 'better-scroll'
+const state= require('./state')
+
+/* 滚动 */
+export let scroll = new BScroll('#text_wrap', {
+  // stopPropagation: true,
+  preventDefault: true
+})
+
+scroll.on('scrollStart', function () {
+  state.touchFromPage = false
+  console.log('bs-start')
+})
 
 /* 初始化第三页 位置 */
 page3.style.top = pageSize.winH + 'px'
@@ -10,15 +23,29 @@ page3.style.top = pageSize.winH + 'px'
 
 
 
-/* 懒加载  把img标签的  data-src 赋值给 src*/
+/* 懒加载  把src 数组 赋值给img的 src*/
+let srcArr = [
+  './static/img/page3/book-content/test1.jpg',
+  './static/img/page3/book-content/test2.jpg',
+  './static/img/page3/book-content/test1.jpg',
+  './static/img/page3/book-content/test2.jpg',
+  './static/img/page3/book-content/test1.jpg',
+  './static/img/page3/book-content/test2.jpg',
+  './static/img/page3/book-content/test1.jpg',
+  './static/img/page3/book-content/test2.jpg',
+  './static/img/page3/book-content/test1.jpg',
+  './static/img/page3/book-content/test2.jpg',
+  './static/img/page3/book-content/test3.jpg',
+]
+
 function imgTimeLazyLoad(arr) {
   for (let i = 0; i < arr.length; i++) {
-    arr[i].children[0].src = arr[i].children[0].getAttribute('data-src')
+    arr[i].children[0].src = srcArr[i]
   }
 }
 setTimeout(() => {
   book_bgc.src = book_bgc.getAttribute('data-src')
-}, 4000)
+}, 6000)
 
 
 let p = new Promise((resolve, reject) => {
@@ -26,7 +53,7 @@ let p = new Promise((resolve, reject) => {
     let target = document.getElementById('flipbook').children
     imgTimeLazyLoad(target)
     resolve()
-  }, 4000)
+  }, 7000)
 }).then(() => {
   $("#flipbook").turn({
     width: pageSize.winW,

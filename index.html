@@ -5,10 +5,11 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
   <script type="text/javascript" src="./static/jquery.min.js"></script>
   <script type="text/javascript" src="./static/turn.js"></script>
   <!--<script type="text/javascript" src="./static/inobounce.min.js"></script>-->
-  <title>Hello World</title>
+  <title>新东方 学习铸造人生</title>
   <!--<script type="text/javascript" src="./static/smoke.js"></script>-->
   <!--<script type="text/javascript" src="./static/staticTest.js"></script>-->
 
@@ -76,7 +77,7 @@
       </div>
 
       <!-- 烟雾 -->
-      <div class="smokes" id="smokes">
+      <!--<div class="smokes" id="smokes">
         <canvas></canvas>
         <canvas></canvas>
         <canvas></canvas>
@@ -84,7 +85,7 @@
         <canvas></canvas>
         <canvas></canvas>
         <canvas></canvas>
-      </div>
+      </div>-->
       <!--下拉箭头-->
       <div class="page1arrow" id="page1_arrow">
         <div class="arrow1"></div>
@@ -93,8 +94,10 @@
     </div>
     <!-- 第二页开始 -->
     <div class="page2" id="page2">
+      <!-- page1的背景图  让过度更圆滑 -->
       <img class="page2-background" id="page2_background" src="./static/img/page1/background.jpg" alt="loading">
-
+      <!-- 开始播放按钮 -->
+      <div class="video-start" id="video_start"></div>
 
       <!--<video
         id="video1"
@@ -200,23 +203,74 @@
           <!-- 翻页代码 -->
           <div class="book-content-wrap" id="book_content_wrap">
             <div class="flipbook" id="flipbook">
-              <!--<div style="background:url('./static/img/page3/book-content/storyTest.jpg') center no-repeat;background-size:100%"></div>
-              <div style="background:url('./static/img/page3/book-content/person2.jpg') center no-repeat;background-size:100%"></div>
-              <div style="background:url('./static/img/page3/book-content/person3.jpg') center no-repeat;background-size:100%"></div>
-              <div style="background:url('./static/img/page3/book-content/person4.jpg') center no-repeat;background-size:100%"></div>-->
-              <div>
-                <img src="./static/img/page3/book868.png" data-src="./static/img/page3/book-content/test1.jpg" alt="loading">
-              </div>
-              <div>
-                <img src="./static/img/page3/book868.png" data-src="./static/img/page3/book-content/test2.jpg" alt="loading">
-              </div>
-              <div>
-                <img src="./static/img/page3/book868.png" data-src="./static/img/page3/book-content/test3.jpg" alt="loading">
-              </div>
+
               <!--<div>
-                <img src="./static/img/page3/book-content/test1.jpg" alt="">
+                <img src="./static/img/page3/book868.png" alt="loading">
+              </div>
+              <div>
+                <img src="./static/img/page3/book868.png" alt="loading">
+              </div>
+              <div>
+                <img src="./static/img/page3/book868.png" alt="loading">
+              </div>
+              <div>
+                <img src="./static/img/page3/book868.png" alt="loading">
+              </div>
+              <div>
+                <img src="./static/img/page3/book868.png" alt="loading">
+              </div>
+              <div>
+                <img src="./static/img/page3/book868.png" alt="loading">
+              </div>
+              <div>
+                <img src="./static/img/page3/book868.png" alt="loading">
+              </div>
+              <div>
+                <img src="./static/img/page3/book868.png" alt="loading">
+              </div>
+              <div>
+                <img src="./static/img/page3/book868.png" alt="loading">
+              </div>
+              <div>
+                <img src="./static/img/page3/book868.png" alt="loading">
+              </div>
+              <div>
+                <img src="./static/img/page3/book868.png" alt="loading">
               </div>-->
 
+              <div>
+                <img src="" alt="loading">
+              </div>
+              <div>
+                <img src="" alt="loading">
+              </div>
+              <div>
+                <img src="" alt="loading">
+              </div>
+              <div>
+                <img src="" alt="loading">
+              </div>
+              <div>
+                <img src="" alt="loading">
+              </div>
+              <div>
+                <img src="" alt="loading">
+              </div>
+              <div>
+                <img src="" alt="loading">
+              </div>
+              <div>
+                <img src="" alt="loading">
+              </div>
+              <div>
+                <img src="" alt="loading">
+              </div>
+              <div>
+                <img src="" alt="loading">
+              </div>
+              <div>
+                <img src="" alt="loading">
+              </div>
 
 
 
@@ -239,6 +293,10 @@
               <p>撒看来大家埃里克撒旦及卢卡斯建档立卡涉及到了卡视角打开了静安寺撒考虑到金坷垃手机端就克拉斯</p>
               <p>撒看来大家埃里克撒旦及卢卡斯建档立卡涉及到了卡视角打开了静安寺撒考虑到金坷垃手机端就克拉斯</p>
             </div>
+          </div>
+          <!--链接热区-->
+          <div class="link" id="link">
+
           </div>
           <!-- 书背景 -->
           <img class="bgc" id="book_bgc" src="" data-src="static/img/page3/book868.png" alt="loading">
@@ -275,3 +333,4 @@
   });*/
 
 </script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.3.0.js"></script>

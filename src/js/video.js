@@ -24,6 +24,21 @@ console.log(ua)
 
 })*/
 
+
+/* 点击开始播放 */
+document.getElementById('video_start').addEventListener('click', function () {
+  runVideo('videoID2')
+  console.log('123123131')
+})
+
+/* 视频是否正在播放  如果是  */
+function isVideoPlaying() {
+  if (paused) {
+
+  }
+}
+
+
 export let runVideo = function (id) {
   let video = document.getElementById(id);//video标签id=media
   if (window.WeixinJSBridge) {

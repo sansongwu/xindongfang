@@ -5,13 +5,15 @@ require('./css/page2.css')
 require('./css/page3.css')
 require('./css/page3Text.css')
 require('./css/arrow.css')
+const {video, audio} = require('./js/getElement')
 // require('./css/video.css')
 
 // require('./css.css')
 // require('./js/smoke/page1smoke')
 
 
-
+const vconsole = require('vconsole')
+let vc = new vconsole()
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -31,112 +33,63 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 window.onload = function () {
-
-
-  document.getElementById('audio2').addEventListener('loadeddata', function () {
-    alert('音乐加载完毕')
-  })
-  document.getElementById('audio2').addEventListener('loadstart', function () {
-    alert('音乐加载完毕')
-  })
-  document.getElementById('audio2').addEventListener('durationchange', function () {
-    alert('音乐加载完毕')
-  })
-
   console.log('window.onload')
-  document.getElementById('loading_div').style.display = 'none'
-  require('./js/init')
-  require('./css/changebookpage.css')
+  /* 自动播放音乐 并且init*/
+  autoPlayAudio(audio)
+  function autoPlayAudio(id) {
+    var video = id
 
-  const music = require('./js/music')
-  const video = require('./js/video')
-
-
-  const move = require('./js/touchMove')
-  require('./js/changeBookPage')
-  /* 图片预加载 */
-  /*window.onload = function () {
-    const preLoading = require('./js/imgPreloading')
-    preLoading.loading(() => {
-      const changePage = require('./js/animate/changeBookPage')
-      const move = require('./js/touchMove')
-    })
-  }*/
-
-}
-/*$("#flipbook").turn({
-  width: pageSize.winW,
-  height: 300,
-  autoCenter: true,
-  display: 'single',  // 显示书的一页 还是 两页（double）
-  turnCorners: "bl,tr",  // 渐变方向 一般在翻页之前设置
-  elevation: 50,  // 设置过渡期间页面的高程  会产生折角
-  acceleration: true, //设置硬件加速模式，对于触摸设备这个值必须是真的
-  gradients: true,  //在转换过程中显示渐变和阴影。
-  when:{
-    turned: function (e, page, view) {
-      console.log(page);
+    if (window.WeixinJSBridge) {
+      WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+        video.play();
+        init()
+      }, false);
+    } else {
+      document.addEventListener("WeixinJSBridgeReady", function () {
+        WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+          video.play();
+          init()
+        });
+      }, false);
     }
+    video.play();
+
+    return false;
   }
-});*/
 
 
-
-
-/*document.addEventListener("touchmove", function(e){
-    e.preventDefault();
-} , false);
-
-var curPage = 1;
-var PageL = $('.page_box .page').length;
-var canTouch = false;
-canTouch = true;
-
-var startY , endY , diff;
-document.body.addEventListener("touchstart", touchStart, false);
-document.body.addEventListener("touchmove", touchMove, false);
-document.body.addEventListener("touchend", touchEnd, false);
-function touchStart(e){
-    var touch = e.touches[0];
-    startY = touch.pageY;
-}
-function touchMove(e){
-    //e.preventDefault();
-    var touch = e.touches[0];
-    endY = touch.pageY;
-    diff = endY - startY;
-}
-function touchEnd(e){
-    if(Math.abs(diff) > 150 && canTouch){
-        if(diff > 0){
-            if(curPage <= 1){
-                return;
-            }
-
-            $('.page' + curPage).removeClass('inTop outTop inDown outDown hide').addClass('outDown');
-            curPage--;
-            $('.page' + curPage).removeClass('inTop outTop inDown outDown hide').addClass('inDown');
-
-        }else{
-            if(curPage >= PageL){
-                return;
-            }
-
-            $('.page' + curPage).removeClass('inTop outTop inDown outDown hide').addClass('outTop');
-            curPage++;
-            $('.page' + curPage).removeClass('inTop outTop inDown outDown hide').addClass('inTop');
-
-            if(curPage >= PageL){
-                $('.arrow').hide();
-            }else{
-                $('.arrow').show();
-            }
-        }
-        canTouch = false;
-        setTimeout(function(){
-            canTouch = true;
-            diff = 0;
-            $('.page' + (curPage - 1) + ', .page' + (curPage + 1)).addClass('hide');
-        },1000);
+  /*let flag = false
+  let timer = setInterval(function () {
+    if (!flag) {
+      if (audio.readyState === 4) {
+        init()
+        console.log('toptop')
+      } else {
+        audio.addEventListener('canplay', function () {
+          init()
+        })
+      }
     }
-}*/
+
+  }, 200)*/
+
+
+
+  function init() {
+    /*flag = true
+    timer = null*/
+    audio.play()
+    console.log('init')
+    document.getElementById('loading_div').style.display = 'none'
+    require('./js/init')
+    require('./css/changebookpage.css')
+
+    const music = require('./js/music')
+    const videojs = require('./js/video')
+
+
+    const move = require('./js/touchMove')
+    require('./js/changeBookPage')
+
+  }
+}

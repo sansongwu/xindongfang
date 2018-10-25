@@ -14,7 +14,7 @@ export let pullUp = function () {
   if (state.page1Ready) {
     page1ToPage2()
     /* 开始播放视频 */
-    videoFun.runVideo('videoID2')
+    // videoFun.runVideo('videoID2')
   }
 
 }
@@ -31,30 +31,36 @@ setTimeout(() => {
 
 /* 诗词一句一句出来 */
 let list = poetry.children
-for (let i = 0; i < list.length; i ++) {
+setTimeout(function () {
+  for (let i = 0; i < list.length; i ++) {
 
-  setTimeout(() => {
-    /* 当最后一行出来之后 page1 淡出 page2淡入 */
-    // if (i == list.length-1) {
-    if (i == 0) {
-    //   page1ToPage2()
-      /* 修改page1 state */
-      state.page1Ready = true
-      /* 显示箭头 */
-      setTimeout(() => {
-        document.getElementById('page1_arrow').style.display = 'block'
-      }, 800)
+    setTimeout(() => {
+      /* 当最后一行出来之后 page1 淡出 page2淡入 */
+      // if (i == list.length-1) {
+      if (i == 0) {
+        /* 自动跳转page2 */
+        setTimeout(function () {
+          page1ToPage2()
+        }, 1400)
+        /* 修改page1 state */
+        state.page1Ready = true
+        /* 显示箭头 */
+        /*setTimeout(() => {
+          document.getElementById('page1_arrow').style.display = 'block'
+        }, 800)*/
 
-    }
+      }
 
-    /* 诗词一行一行显示 */
-    Velocity(list[i].children[0], {
-      opacity: "1"
-    }, {
-      duration: 500,
-    });
-  }, 800*i)
-}
+      /* 诗词一行一行显示 */
+      Velocity(list[i].children[0], {
+        opacity: "1"
+      }, {
+        duration: 500,
+      });
+    }, 900*i)
+  }
+}, 1000)
+
 
 
 function page1ToPage2() {
@@ -78,12 +84,12 @@ function page1ToPage2() {
   }, {
     duration: 1000,
     complete() {
-      /* 视频播放完执行 */
-      setTimeout(() => {
+      /* 视频播放完执行跳转 */
+      /*setTimeout(() => {
         if (!state.page3showed) {
           globalAnimate.autoVideoFinish()
         }
-      }, 9000)
+      }, 9000)*/
     }
   });
 }
