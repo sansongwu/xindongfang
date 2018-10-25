@@ -6,8 +6,8 @@ const {cover} = require('./getElement')
 
 let moveStartY, moveEndY, diffY, moveStartX, moveEndX, diffX
 /* 滑动的有效距离 */
-const effectiveY = 80
-const effectiveX = 40
+const effectiveY = 160
+const effectiveX = 60
 const effectiveDiff = effectiveY - effectiveX
 
 const currentPageNum = 0

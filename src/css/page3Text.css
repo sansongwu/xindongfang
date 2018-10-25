@@ -1,9 +1,10 @@
 .text-wrap {
   position: absolute;
-  bottom: 0;
+  /*bottom: 0;*/
+  top: 57%;
   left: 51%;
   width: 70%;
-  height: 50%;
+  height: 36%;
   background-color: #f3ede4;
   transform: translateX(-50%);
   z-index: 101;
@@ -11,6 +12,7 @@
   /*border: 2px solid #000000;*/
   padding: 5%;
   box-sizing: border-box;
+  /*display: none;*/
 }
 
 .text-wrap p {

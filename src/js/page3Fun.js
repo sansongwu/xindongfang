@@ -6,6 +6,7 @@ require('velocity-animate/velocity.ui');
 const changeBookPage = require('./animate/changeBookPage')
 const globalAnimate = require('./globalAnimate')
 import  BScroll from 'better-scroll'
+const {bookHeight} = require('./bookPosition')
 
 let imgBigFinish = false
 
@@ -74,7 +75,7 @@ export let enlargeImg = function () {
   up()
   /* 书往上拉效果 */
   Velocity(book, {
-    top: '0'
+    bottom: '0'
   }, {
     duration: 200,
     easing: "swing"
@@ -115,7 +116,7 @@ export let reduceImg = function () {
   down()
   /* page3.css 里 .page3 .page3-bottom .book  的 top 值 */
   Velocity(book, {
-    top: '38%'
+    bottom: '-32%'
   }, {
     duration: 200,
     // easing: "swing"
@@ -126,9 +127,11 @@ export let reduceImg = function () {
 /* 翻书方法 */
 export let pullLeft = function () {
   goPage()
+  $(".flipbook").turn("next")
 }
 export let pullRight = function () {
   backPage()
+  $(".flipbook").turn("previous")
 }
 
 let currentPage = 0
@@ -140,6 +143,7 @@ function goPage() {
   console.log('当前是第 '+currentPage+' 页')
 
   setMark(currentPage)
+
   // changeBookPage.nextPage()
 
 }
@@ -153,6 +157,8 @@ function backPage() {
   setMark(currentPage)
   // changeBookPage.backPage()
 }
+
+
 /* 设置书签样式 */
 function setMark(pageNum) {
   let target = mark_ul.children[pageNum].children[0]
@@ -184,15 +190,15 @@ function setMark(pageNum) {
 
 }
 
+/* 设置书相关信息 高度 等 */
+book.style.height = bookHeight + 'px'
+
 let strArr = [
   ['我在做新东方的过程中，从没有放弃阅读，','从大学毕业到现在，每年阅读一百多本书，','认真反复读的书达到十几本到二十本。','我家里的纸质书籍有一万多本，每个月还在以30—50本的速度增加，',
     '每年购买新书的数量是500多本，再加上出版社寄给我的就更多了。','&nbsp;','认准一件事，就坚持做下去。','&nbsp','其实这个世界上任何的成功都是需要反复努力才能达成的。',
     '爱情需要努力，学习需要努力，未来的事业更需要努力，','人生一辈子想要有所得，必须不断努力。','&nbsp','人的每一天都是很琐碎的，','把每天做的事情比喻成每天捡一块砖头的话，',
     '大部分人一辈子到最后只是捡了一堆砖头。','对于有些人来说他的琐碎是为了给自己的人生添砖加瓦，','他们的每一块砖都会变成自己理想的铺垫，从而盖起自己的理想大厦。'],
-  ['我在做新东方的过程中，从没有放弃阅读，','从大学毕业到现在，每年阅读一百多本书，','认真反复读的书达到十几本到二十本。','我家里的纸质书籍有一万多本，每个月还在以30—50本的速度增加，',
-    '每年购买新书的数量是500多本，再加上出版社寄给我的就更多了。',' ','认准一件事，就坚持做下去。',' ','其实这个世界上任何的成功都是需要反复努力才能达成的。',
-    '爱情需要努力，学习需要努力，未来的事业更需要努力，','人生一辈子想要有所得，必须不断努力。',' ','人的每一天都是很琐碎的，','把每天做的事情比喻成每天捡一块砖头的话，',
-    '大部分人一辈子到最后只是捡了一堆砖头。','对于有些人来说他的琐碎是为了给自己的人生添砖加瓦，','他们的每一块砖都会变成自己理想的铺垫，从而盖起自己的理想大厦。']
+  [['测试内容'], ['测试内容'], ['测试内容'], ['测试内容'], ['测试内容'], ['测试内容'], ['测试内容'], ['测试内容'], ['测试内容']]
 ]
 
 let text = document.getElementById('text')
@@ -208,9 +214,11 @@ function setText(num) {
 
 setText(0)
 
+
+
 let scroll = new BScroll('#text_wrap', {
   stopPropagation: true,
-  preventDefault: true
+  // preventDefault: true
 })
 
 /*book_content.children[0].children[0].onload = function () {
