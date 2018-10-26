@@ -17,7 +17,8 @@ let currentPage = 0
 /* 点击换页 */
 const list = mark_ul.children
 for (let i = 0; i < list.length; i ++) {
-  list[i].addEventListener('click', function () {
+  list[i].addEventListener('touchstart', function (e) {
+
     $("#flipbook").turn("page", (i+1))
     currentPage = i
     setMark(currentPage)

@@ -1,8 +1,10 @@
 /**
  * Created by wayne on 2018/10/21.
  */
-
-
+const {audio} = require('./getElement')
+/*audio.addEventListener('pause', function(){
+  audio.play()
+})*/
 
 
 

@@ -1,4 +1,4 @@
-.IIV::-webkit-media-controls-play-button,
+/*.IIV::-webkit-media-controls-play-button,
 .IIV::-webkit-media-controls-start-playback-button {
   opacity: 0;
   pointer-events: none;
@@ -19,4 +19,5 @@ video{
   top: .7rem;
   overflow: hidden;
   margin-top:-.7rem;
-}
+}*/
+

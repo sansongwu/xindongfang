@@ -16,7 +16,6 @@ const currentPageNum = 0
 
 
 function touchStart(e) {
-  console.log('start-----------')
   state.touchFromPage = true
     let touch = e.touches[0]
     moveStartY = touch.pageY
@@ -31,7 +30,6 @@ function touchMove(e) {
     let touch = e.touches[0]
     moveEndY = touch.pageY
     moveEndX = touch.pageX
-  console.log('move')
 }
 
 /* 计算差值 在end事件中先执行 */
@@ -105,9 +103,6 @@ let strategies = {
         if (Math.abs(diffY) >= Math.abs(diffX)) {
             this.upDown(up, down)
         } else {
-            console.log(Math.abs(diffY) >= Math.abs(diffX))
-            console.log(Math.abs(diffY))
-            console.log(Math.abs(diffX))
             this.leftRight(left, right)
         }
     }

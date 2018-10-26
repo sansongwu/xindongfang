@@ -1,5 +1,5 @@
 const changePage = require('./changePage')
-const {page1, page2, page3, poetry, audio2} = require('./getElement')
+const {page1, page2, page3, poetry, audio2, video} = require('./getElement')
 const state = require('./state')
 const velocity = require('velocity-animate')
 require('velocity-animate/velocity.ui');
@@ -14,7 +14,8 @@ export let pullUp = function () {
   if (state.page1Ready) {
     page1ToPage2()
     /* 开始播放视频 */
-    // videoFun.runVideo('videoID2')
+    videoFun.runVideo('videoID2')
+    // video.pause();
   }
 
 }
@@ -29,25 +30,34 @@ setTimeout(() => {
   });
 }, 1000)
 
+
 /* 诗词一句一句出来 */
 let list = poetry.children
+let times
+if (state.isTest) {
+  times = 0
+} else {
+  times = list.length-1
+}
+
+
 setTimeout(function () {
   for (let i = 0; i < list.length; i ++) {
 
     setTimeout(() => {
       /* 当最后一行出来之后 page1 淡出 page2淡入 */
-      // if (i == list.length-1) {
-      if (i == 0) {
+      if (i == times) {
+      // if (i == 0) {
         /* 自动跳转page2 */
-        setTimeout(function () {
+        /*setTimeout(function () {
           page1ToPage2()
-        }, 1400)
+        }, 1400)*/
         /* 修改page1 state */
         state.page1Ready = true
         /* 显示箭头 */
-        /*setTimeout(() => {
+        setTimeout(() => {
           document.getElementById('page1_arrow').style.display = 'block'
-        }, 800)*/
+        }, 800)
 
       }
 

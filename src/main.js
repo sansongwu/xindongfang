@@ -6,14 +6,17 @@ require('./css/page3.css')
 require('./css/page3Text.css')
 require('./css/arrow.css')
 const {video, audio} = require('./js/getElement')
+const state = require('./js/state')
 // require('./css/video.css')
 
 // require('./css.css')
 // require('./js/smoke/page1smoke')
 
+if (state.isTest) {
+  const vconsole = require('vconsole')
+  let vc = new vconsole()
+}
 
-const vconsole = require('vconsole')
-let vc = new vconsole()
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -34,8 +37,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
 window.onload = function () {
   console.log('window.onload')
-  /* 自动播放音乐 并且init*/
-  autoPlayAudio(audio)
+
+
+  let ua = window.navigator.userAgent
+  if (ua.indexOf('MicroMessenger') > 0) {
+    //在微信中打开
+    /* 自动播放音乐 并且init*/
+    autoPlayAudio(audio)
+  } else {
+    /* 不在微信中 */
+    audio.play();
+    init()
+  }
+
   function autoPlayAudio(id) {
     var video = id
 
@@ -84,7 +98,7 @@ window.onload = function () {
     require('./js/init')
     require('./css/changebookpage.css')
 
-    const music = require('./js/music')
+    const musicjs = require('./js/music')
     const videojs = require('./js/video')
 
 

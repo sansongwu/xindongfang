@@ -2,11 +2,10 @@
  * Created by wayne on 2018/10/21.
  */
 const pageSize = require('./pageSize')
-
+const state = require('./state')
 /*let video = document.getElementById('video1')
 video.style.width = pageSize.winW*/
-
-let target = document.getElementById('videoID2')
+const {video, audio, page3} = require('./getElement')
 let ua = window.navigator.userAgent
 console.log(ua)
 /*if (ua.indexOf('MicroMessenger') > 0) {
@@ -25,11 +24,18 @@ console.log(ua)
 })*/
 
 
-/* 点击开始播放 */
-document.getElementById('video_start').addEventListener('click', function () {
-  runVideo('videoID2')
-  console.log('123123131')
-})
+if (state.isTest) {
+  /* 点击开始播放 */
+  document.getElementById('video_start').addEventListener('touchstart', function () {
+    // runVideo('videoID2')
+    if (video.paused) {
+      video.play()
+    } else {
+      video.pause();
+    }
+  })
+}
+
 
 /* 视频是否正在播放  如果是  */
 function isVideoPlaying() {
@@ -80,11 +86,31 @@ function autoPlayAudio(id) {
 
 
 
-target.style.width = window.innerWidth + "px";
-target.style.height = window.innerHeight + "px";
+video.style.width = window.innerWidth + "px";
+video.style.height = window.innerHeight + "px";
+
+
+/*window.onresize = function () {
+  video.style.width = window.innerWidth + "px";
+  video.style.height = window.innerHeight + "px";
+  pageSize.winH = window.innerHeight
+  pageSize.winW = window.innerWeight
+
+  document.getElementById('page1').style.height = window.innerHeight + "px";
+  document.getElementById('page2').style.height = window.innerHeight + "px";
+  document.getElementById('page3').style.height = window.innerHeight + "px";
+  page3.style.top = window.innerHeight + "px";
+}*/
 window.onresize = function () {
-  target.style.width = window.innerWidth + "px";
-  target.style.height = window.innerHeight + "px";
+  video.style.width = window.innerWidth + "px";
+  video.style.height = window.innerHeight + "px";
+  /*pageSize.winH = window.innerHeight
+  pageSize.winW = window.innerWeight*/
+
+  document.getElementById('page1').style.height = window.innerHeight + "px";
+  document.getElementById('page2').style.height = window.innerHeight + "px";
+  document.getElementById('page3').style.height = window.innerHeight + "px";
+  page3.style.top = window.innerHeight + "px";
 }
 
 

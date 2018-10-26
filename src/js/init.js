@@ -25,17 +25,17 @@ page3.style.top = pageSize.winH + 'px'
 
 /* 懒加载  把src 数组 赋值给img的 src*/
 let srcArr = [
-  './static/img/page3/book-content/test1.jpg',
-  './static/img/page3/book-content/test2.jpg',
-  './static/img/page3/book-content/test1.jpg',
-  './static/img/page3/book-content/test2.jpg',
-  './static/img/page3/book-content/test1.jpg',
-  './static/img/page3/book-content/test2.jpg',
-  './static/img/page3/book-content/test1.jpg',
-  './static/img/page3/book-content/test2.jpg',
-  './static/img/page3/book-content/test1.jpg',
-  './static/img/page3/book-content/test2.jpg',
-  './static/img/page3/book-content/test3.jpg',
+  './static/img/page3/book-content/L.jpg',
+  './static/img/page3/book-content/V.jpg',
+  './static/img/page3/book-content/Y.jpg',
+  './static/img/page3/book-content/T.jpg',
+  './static/img/page3/book-content/O.jpg',
+  './static/img/page3/book-content/I.jpg',
+  './static/img/page3/book-content/A.jpg',
+  './static/img/page3/book-content/L.jpg',
+  './static/img/page3/book-content/E.jpg',
+  './static/img/page3/book-content/D.jpg',
+  './static/img/page3/book-content/more.jpg',
 ]
 
 function imgTimeLazyLoad(arr) {
