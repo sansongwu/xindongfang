@@ -1,27 +1,38 @@
 /**
  * Created by wayne on 2018/10/21.
  */
-const {audio} = require('./getElement')
+const {audio, music_button, audio_page} = require('./getElement')
 /*audio.addEventListener('pause', function(){
   audio.play()
 })*/
+/* 暂停音乐 */
+music_button.addEventListener('click', function () {
+  playPause()
+})
 
 
 
 
-
-/*function playPause() {
-  var music = document.getElementById('music2');
-  var music_btn = document.getElementById('music_btn2');
+function playPause() {
+  var music = audio
   if (music.paused) {
     music.play();
-    music_btn.src = 'play.gif';
+    music_button.children[0].src = './static/img/page1/logo.png'
+    music_button.className = 'music-button-base music-button'
   } else {
     music.pause();
-    music_btn.src = 'pause.gif';
+    music_button.children[0].src = ''
+    music_button.className = 'music-button-base'
   }
 }
-window.onload = function() {
+
+/* 翻书音效 */
+/*export function audioPage() {
+  audio_page.play()
+}*/
+
+
+/*window.onload = function() {
   let music = document.getElementById('t-rex-roar')
   music.volume = 0.1;
   /!*music.play()*!/

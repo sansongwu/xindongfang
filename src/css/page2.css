@@ -26,6 +26,9 @@
   position: absolute;
   z-index: 1;
   opacity: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .video-start {
@@ -37,4 +40,5 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #5E740B;
+  display: none;
 }

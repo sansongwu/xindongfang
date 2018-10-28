@@ -16,10 +16,17 @@
   /*display: none;*/
 }
 
+
+@font-face{
+  　　font-family: "思源宋体";
+  　　src: url('');
+}
+
 .text-wrap p {
   /*background-color: #5E740B;*/
   margin: 0;
   font-size: 12px;
   color: #222222;
+  font-family: '思源宋体',"微软雅黑",sans-serif;
 }
 

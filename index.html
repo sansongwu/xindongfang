@@ -26,12 +26,15 @@
   left: 0;"></div>
 <div class="wrap" id="wrap">
   <div class="contents" id="contents">
+
     <div class="music">
       <!-- muted 静音  controls进度条   -->
-
-
       <audio id="audio2" style="display: none;" src="./static/music/music.m4a" preload="auto" loop="loop" autoplay="autoplay"></audio>
-
+      <audio id="audio_page" style="display: none;" src="./static/music/changepage.mp3" preload="auto"></audio>
+    </div>
+    <!-- 旋转按钮 -->
+    <div class="music-button-base music-button" id="music_button">
+      <img src="./static/img/page1/logo.png" alt="">
     </div>
     <div class="index-logo" id="index_logo">
       <img src="static/img/page1/logo.png" alt="">
@@ -121,7 +124,6 @@
              x5-video-player-fullscreen="true"
              width="100%"
              preload="auto"
-             loop="loop"
              src="./static/video/video.mp4"
              muted='muted'
 

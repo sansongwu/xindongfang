@@ -1,6 +1,6 @@
 
 const changePage = require('./changePage')
-const {page3, book, mark_ul} = require('./getElement')
+const {page3, book, mark_ul, audio_page} = require('./getElement')
 const pageSize = require('./pageSize')
 const velocity = require('velocity-animate')
 require('velocity-animate/velocity.ui');
@@ -18,11 +18,17 @@ let currentPage = 0
 const list = mark_ul.children
 for (let i = 0; i < list.length; i ++) {
   list[i].addEventListener('touchstart', function (e) {
-
+    /* 如果是当前也 不执行操作 */
+    if (i == currentPage) {
+      return
+    }
     $("#flipbook").turn("page", (i+1))
     currentPage = i
     setMark(currentPage)
     setText(currentPage)
+
+    /* 翻书声音 */
+    audio_page.play()
   })
 }
 
@@ -58,6 +64,8 @@ export let goPage = function () {
     setText(currentPage)
   }, stateTime)
 
+  /* 翻书声音 */
+  audio_page.play()
 }
 
 /* 上一页 */
@@ -85,6 +93,9 @@ export let backPage = function () {
   setTimeout(() => {
     setText(currentPage)
   }, stateTime)
+
+  /* 翻书声音 */
+  audio_page.play()
 
 }
 /* 修改可翻页状态 */

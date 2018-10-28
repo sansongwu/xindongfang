@@ -1,5 +1,5 @@
 const changePage = require('./changePage')
-const {book, page3_title, page3_info,} = require('./getElement')
+const {book, page3_title, page3_info} = require('./getElement')
 const pageSize = require('./pageSize')
 const velocity = require('velocity-animate')
 require('velocity-animate/velocity.ui');

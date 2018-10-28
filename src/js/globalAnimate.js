@@ -3,6 +3,9 @@ const state = require('./state')
 const velocity = require('velocity-animate')
 require('velocity-animate/velocity.ui');
 const pageSize = require('./pageSize')
+const page3init = require('./init/page3init')
+const videojs = require('./video')
+
 /* 隐藏logo  title */
 let hideIndexLogo = function () {
 
@@ -75,10 +78,10 @@ function showLogoTitle() {
 
 
 export let autoVideoFinish = function () {
+  /* 让视频循环播放 */
+  videojs.addLoop()
   /* 设置 logo title 位置 */
   hideLogoTitle()
-  /* 修改第三页已经进入过了的状态  阻止第二页的自动跳转 */
-  state.page3showed = true
   /* 展示最后一针的图 */
   page2_background.style.opacity = '1'
   /* 滚动到第二页上面 */
@@ -91,6 +94,12 @@ export let autoVideoFinish = function () {
 
     },
     complete() {
+      /* 初始化第三页 */
+      if (!state.page3showed) {
+        page3init.page3_bgc_animate()
+      }
+      /* 修改第三页已经进入过了的状态  阻止第二页的自动跳转 */
+      state.page3showed = true
 
     }
   });
@@ -106,6 +115,9 @@ export let autoVideoFinish = function () {
 }
 
 export let backToPage2 = function () {
+  /* 继续播放视频 */
+  videojs.runVideo('videoID2')
+
   /* 恢复logo  title */
   showLogoTitle()
   /* 滚动到第二页上面 */

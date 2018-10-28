@@ -25,6 +25,7 @@ console.log(ua)
 
 
 if (state.isTest) {
+  video_start.style.display = 'block'
   /* 点击开始播放 */
   document.getElementById('video_start').addEventListener('touchstart', function () {
     // runVideo('videoID2')
@@ -44,7 +45,7 @@ function isVideoPlaying() {
   }
 }
 
-
+/* 开始播放方法 */
 export let runVideo = function (id) {
   let video = document.getElementById(id);//video标签id=media
   if (window.WeixinJSBridge) {
@@ -63,6 +64,10 @@ export let runVideo = function (id) {
 
 }
 
+/* 给视频增加自动播放loop */
+export let addLoop = () => {
+  video.loop = 'loop'
+}
 
 /* 视频 自动播放 */
 function autoPlayAudio(id) {

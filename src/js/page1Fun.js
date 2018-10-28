@@ -95,11 +95,17 @@ function page1ToPage2() {
     duration: 1000,
     complete() {
       /* 视频播放完执行跳转 */
-      /*setTimeout(() => {
+      video.onended = function() {
         if (!state.page3showed) {
           globalAnimate.autoVideoFinish()
+
         }
-      }, 9000)*/
+      };
+
+
+      setTimeout(() => {
+
+      }, 9000)
     }
   });
 }

@@ -19,6 +19,9 @@ module.exports = {
   index_title: document.getElementById('index_title'),
   cover: document.getElementById('cover'),
   book_bgc: document.getElementById('book_bgc'),
+  music_button: document.getElementById('music_button'),
+  audio_page: document.getElementById('audio_page'),
+  video_start: document.getElementById('video_start'),
 
 
 }
