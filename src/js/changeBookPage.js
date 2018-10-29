@@ -35,6 +35,8 @@ for (let i = 0; i < list.length; i ++) {
 
 
 
+
+
 /* 是否可以翻页 */
 let canChangePage = true
 /* 设置可翻页间隔 */
@@ -51,6 +53,8 @@ export let goPage = function () {
   currentPage++
   console.log('当前是第 '+currentPage+' 页')
 
+  /* 翻书声音 */
+  audio_page.play()
   /* 设置标签样式 */
   setMark(currentPage)
   /* 设置文本为空 */
@@ -64,8 +68,7 @@ export let goPage = function () {
     setText(currentPage)
   }, stateTime)
 
-  /* 翻书声音 */
-  audio_page.play()
+
 }
 
 /* 上一页 */
@@ -81,6 +84,8 @@ export let backPage = function () {
   console.log('当前是第 '+currentPage+' 页')
 
 
+  /* 翻书声音 */
+  audio_page.play()
   /* 设置标签样式 */
   setMark(currentPage)
   /* 设置文本为空 */
@@ -93,9 +98,6 @@ export let backPage = function () {
   setTimeout(() => {
     setText(currentPage)
   }, stateTime)
-
-  /* 翻书声音 */
-  audio_page.play()
 
 }
 /* 修改可翻页状态 */
@@ -180,7 +182,33 @@ function setTextNull() {
 /* 初始化设置文字 第一页的 */
 setText(currentPage)
 /* 热区绑定事件 */
-link.addEventListener('click', function () {
+let start = 0
+let end = 0
+
+link.addEventListener('touchstart', function (e) {
   // wx.miniProgram.navigateTo({url: 'www.baidu.com'})
-  window.location.href="https://www.baidu.com"
+  end = 0
+  e.stopPropagation()
+  e.preventDefault()
+  start = e.touches[0].pageX
+  return false
+})
+link.addEventListener('touchmove', function (e) {
+  // wx.miniProgram.navigateTo({url: 'www.baidu.com'})
+  e.stopPropagation()
+  e.preventDefault()
+  end = e.touches[0].pageX
+  return false
+})
+
+link.addEventListener('touchend', function (e) {
+  // wx.miniProgram.navigateTo({url: 'www.baidu.com'})
+  e.stopPropagation()
+  e.preventDefault()
+  if ((end - start) < 10) {
+
+    window.location.href="https://www.baidu.com"
+  }
+
+  return false
 })

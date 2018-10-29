@@ -6,22 +6,27 @@ const {audio, music_button, audio_page} = require('./getElement')
   audio.play()
 })*/
 /* 暂停音乐 */
-music_button.addEventListener('click', function () {
+music_button.addEventListener('touchstart', function () {
   playPause()
 })
 
 
+
+audio.addEventListener('pause', function () {
+  music_button.children[0].src = './static/img/musicStop.png'
+  music_button.className = 'music-button-base'
+})
 
 
 function playPause() {
   var music = audio
   if (music.paused) {
     music.play();
-    music_button.children[0].src = './static/img/page1/logo.png'
+    music_button.children[0].src = './static/img/musicPlay.png'
     music_button.className = 'music-button-base music-button'
   } else {
     music.pause();
-    music_button.children[0].src = ''
+    music_button.children[0].src = './static/img/musicStop.png'
     music_button.className = 'music-button-base'
   }
 }

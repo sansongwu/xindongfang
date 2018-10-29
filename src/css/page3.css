@@ -188,7 +188,7 @@
   left: 50%;
   top: 25%;
   transform: translate(-50%, -50%);
-  z-index: 101;
+  z-index: 105;
   background-color: rgba(0,0,0,0);
 }
 
@@ -200,4 +200,25 @@
   z-index: 10;
   bottom:0;
   left: 0;
+}
+
+
+/* 书上的动效 */
+.book-decoration {
+  width: 80%;
+  height: 45%;
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 102;
+  overflow: hidden;
+}
+.book-decoration img {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  opacity: 1;
 }

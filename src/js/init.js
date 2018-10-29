@@ -32,7 +32,7 @@ let srcArr = [
   './static/img/page3/book-content/O.jpg',
   './static/img/page3/book-content/I.jpg',
   './static/img/page3/book-content/A.jpg',
-  './static/img/page3/book-content/L.jpg',
+  './static/img/page3/book-content/C.jpg',
   './static/img/page3/book-content/E.jpg',
   './static/img/page3/book-content/D.jpg',
   './static/img/page3/book-content/more.jpg',

@@ -29,12 +29,13 @@
 
     <div class="music">
       <!-- muted 静音  controls进度条   -->
-      <audio id="audio2" style="display: none;" src="./static/music/music.m4a" preload="auto" loop="loop" autoplay="autoplay"></audio>
+      <!--<audio id="audio2" style="display: none;" src="./static/music/music.m4a" preload="auto" loop="loop" autoplay="autoplay"></audio>-->
+      <audio id="audio2" style="display: none;" src="./static/music/bgm2.mp3" preload="auto" loop="loop" autoplay="autoplay"></audio>
       <audio id="audio_page" style="display: none;" src="./static/music/changepage.mp3" preload="auto"></audio>
     </div>
     <!-- 旋转按钮 -->
     <div class="music-button-base music-button" id="music_button">
-      <img src="./static/img/page1/logo.png" alt="">
+      <img src="./static/img/musicPlay.png" alt="">
     </div>
     <div class="index-logo" id="index_logo">
       <img src="static/img/page1/logo.png" alt="">
@@ -116,6 +117,8 @@
         style="object-fit:fill">
 
       </video>-->
+
+      <!--x5-video-player-fullscreen="true"-->
       <video id="videoID2"
              style="object-fit: fill;"
              x-webkit-airplay="true"
@@ -126,8 +129,8 @@
              preload="auto"
              src="./static/video/video.mp4"
              muted='muted'
-
              webkit-playsinline="true"
+             x5-playsinline="true"
       ></video>
 
     </div>
@@ -155,10 +158,14 @@
 
       <div class="page3-bottom" id="page3_bottom">
         <div class="book" id="book">
+          <!-- 动效 -->
+          <div class="book-decoration">
+            <img src="./static/img/page3/decoration.png" alt="" id="decoration_target">
+          </div>
           <!-- 书签 -->
           <div class="mark">
             <ul id="mark_ul">
-              <li>
+              <li id="music_play">
                 <img src="static/img/page3/mark/m00.png" alt="">
               </li>
               <li>
@@ -291,9 +298,7 @@
 
           <div class="text-wrap" id="text_wrap">
             <div class="text" id="text">
-              <p>撒看来大家埃里克撒旦及卢卡斯建档立卡涉及到了卡视角打开了静安寺撒考虑到金坷垃手机端就克拉斯</p>
-              <p>撒看来大家埃里克撒旦及卢卡斯建档立卡涉及到了卡视角打开了静安寺撒考虑到金坷垃手机端就克拉斯</p>
-              <p>撒看来大家埃里克撒旦及卢卡斯建档立卡涉及到了卡视角打开了静安寺撒考虑到金坷垃手机端就克拉斯</p>
+              <p>撒看来大</p>
             </div>
           </div>
           <!--链接热区-->

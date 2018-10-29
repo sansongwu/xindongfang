@@ -78,6 +78,8 @@ function showLogoTitle() {
 
 
 export let autoVideoFinish = function () {
+  $('#music_play').click()
+
   /* 让视频循环播放 */
   videojs.addLoop()
   /* 设置 logo title 位置 */

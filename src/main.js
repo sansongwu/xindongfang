@@ -5,7 +5,7 @@ require('./css/page2.css')
 require('./css/page3.css')
 require('./css/page3Text.css')
 require('./css/arrow.css')
-const {video, audio} = require('./js/getElement')
+const {video, audio, audio_page, music_button} = require('./js/getElement')
 const state = require('./js/state')
 // require('./css/video.css')
 
@@ -90,10 +90,18 @@ window.onload = function () {
 
 
   function init() {
+    /* 显示旋转的播放音乐按钮 */
+    music_button.style.display = 'block'
     /*flag = true
     timer = null*/
     audio.play()
     console.log('init')
+
+    /* 触发翻书声音 */
+    $('#music_play').on('click', function () {
+      audio_page.play()
+    })
+
     document.getElementById('loading_div').style.display = 'none'
     require('./js/init')
     require('./css/changebookpage.css')
@@ -107,3 +115,12 @@ window.onload = function () {
 
   }
 }
+/* 音频预加载 */
+/*var audio = document.createElement("audio");
+audio.src = "490141.m4a";
+audio.addEventListener("canplaythrough",
+  function() {
+    $(".yinyu").show();
+    audio.play();
+  },
+  false);*/

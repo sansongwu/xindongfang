@@ -1,5 +1,5 @@
 const changePage = require('./changePage')
-const {book, page3_title, page3_info} = require('./getElement')
+const {book, page3_title, page3_info, audio_page} = require('./getElement')
 const pageSize = require('./pageSize')
 const velocity = require('velocity-animate')
 require('velocity-animate/velocity.ui');
@@ -15,6 +15,8 @@ let imgBigFinish = false
 export let pullUp = function () {
     /* 放大图片 只放大一次 */
     if (!imgBigFinish) {
+      audio_page.play()
+      audio_page.pause()
       enlargeImg()
       imgBigFinish = true
     } else {
