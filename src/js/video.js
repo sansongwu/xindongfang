@@ -5,7 +5,7 @@ const pageSize = require('./pageSize')
 const state = require('./state')
 /*let video = document.getElementById('video1')
 video.style.width = pageSize.winW*/
-const {video, audio, page3} = require('./getElement')
+const {video, audio, page3, big_video} = require('./getElement')
 let ua = window.navigator.userAgent
 console.log(ua)
 /*if (ua.indexOf('MicroMessenger') > 0) {
@@ -28,14 +28,38 @@ if (state.isTest) {
   video_start.style.display = 'block'
   /* 点击开始播放 */
   document.getElementById('video_start').addEventListener('touchstart', function () {
+    /* 点击播放 需要组织第二页 自动跳转第三页 */
+    state.page3showed = true
     // runVideo('videoID2')
-    if (video.paused) {
-      video.play()
+    if (big_video.paused) {
+      big_video.play()
+      closeBgVideo()
     } else {
-      video.pause();
+      big_video.pause();
+      openBgVideo()
     }
   })
 }
+
+/* 给大视频增加监听 当不播放的时候 执行开始播放背景视频方法 */
+big_video.addEventListener('pause', function () {
+  openBgVideo()
+  // alert('监听主视频暂停')
+})
+
+
+/* 背景视频方法 */
+/* 开始播放主视频 关闭背景视频*/
+function closeBgVideo() {
+  video.style.display = 'none'
+}
+
+/* 结束播放主视频 打开背景视频*/
+function openBgVideo() {
+  video.style.display = 'inline'
+}
+
+
 
 
 /* 视频是否正在播放  如果是  */
@@ -98,26 +122,23 @@ video.style.height = window.innerHeight + "px";
 /*window.onresize = function () {
   video.style.width = window.innerWidth + "px";
   video.style.height = window.innerHeight + "px";
-  pageSize.winH = window.innerHeight
-  pageSize.winW = window.innerWeight
 
   document.getElementById('page1').style.height = window.innerHeight + "px";
   document.getElementById('page2').style.height = window.innerHeight + "px";
   document.getElementById('page3').style.height = window.innerHeight + "px";
   page3.style.top = window.innerHeight + "px";
 }*/
-window.onresize = function () {
+
+export let windowResize = function () {
   video.style.width = window.innerWidth + "px";
   video.style.height = window.innerHeight + "px";
-  /*pageSize.winH = window.innerHeight
-  pageSize.winW = window.innerWeight*/
 
   document.getElementById('page1').style.height = window.innerHeight + "px";
   document.getElementById('page2').style.height = window.innerHeight + "px";
   document.getElementById('page3').style.height = window.innerHeight + "px";
   page3.style.top = window.innerHeight + "px";
 }
-
+window.addEventListener('resize', windowResize)
 
 
 

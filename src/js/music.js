@@ -21,16 +21,25 @@ audio.addEventListener('pause', function () {
 function playPause() {
   var music = audio
   if (music.paused) {
-    music.play();
-    music_button.children[0].src = './static/img/musicPlay.png'
-    music_button.className = 'music-button-base music-button'
+    openBGM()
   } else {
-    music.pause();
-    music_button.children[0].src = './static/img/musicStop.png'
-    music_button.className = 'music-button-base'
+    closeBGM()
   }
 }
 
+/* 开启BGM */
+export let openBGM = function () {
+  audio.play();
+  music_button.children[0].src = './static/img/musicPlay.png'
+  music_button.className = 'music-button-base music-button'
+}
+
+/* 关闭BGM */
+export let closeBGM = function () {
+  audio.pause();
+  music_button.children[0].src = './static/img/musicStop.png'
+  music_button.className = 'music-button-base'
+}
 /* 翻书音效 */
 /*export function audioPage() {
   audio_page.play()

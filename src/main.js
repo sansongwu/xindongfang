@@ -37,39 +37,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 window.onload = function () {
   console.log('window.onload')
+  init()
 
 
-  let ua = window.navigator.userAgent
-  if (ua.indexOf('MicroMessenger') > 0) {
-    //在微信中打开
-    /* 自动播放音乐 并且init*/
-    autoPlayAudio(audio)
-  } else {
-    /* 不在微信中 */
-    audio.play();
-    init()
-  }
-
-  function autoPlayAudio(id) {
-    var video = id
-
-    if (window.WeixinJSBridge) {
-      WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
-        video.play();
-        init()
-      }, false);
-    } else {
-      document.addEventListener("WeixinJSBridgeReady", function () {
-        WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
-          video.play();
-          init()
-        });
-      }, false);
-    }
-    video.play();
-
-    return false;
-  }
 
 
   /*let flag = false
@@ -90,11 +60,8 @@ window.onload = function () {
 
 
   function init() {
-    /* 显示旋转的播放音乐按钮 */
-    music_button.style.display = 'block'
     /*flag = true
     timer = null*/
-    audio.play()
     console.log('init')
 
     /* 触发翻书声音 */
@@ -102,6 +69,7 @@ window.onload = function () {
       audio_page.play()
     })
 
+    /* 关闭遮罩 */
     document.getElementById('loading_div').style.display = 'none'
     require('./js/init')
     require('./css/changebookpage.css')

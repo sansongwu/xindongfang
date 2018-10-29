@@ -1,7 +1,7 @@
 /**
  * Created by wayne on 2018/10/28.
  */
-const {page2_background} = require('../getElement')
+const {page2_background, music_button, audio} = require('../getElement')
 const velocity = require('velocity-animate')
 require('velocity-animate/velocity.ui');
 
@@ -32,23 +32,14 @@ function turnSmall() {
   })
 }
 
-export let page3_bgc_animate = function () {
-  turnBig()
-  /*setInterval(() => {
-    if (isBig) {
-      turnSmall()
-    }
-  }, 300)*/
-}
+
 
 
 /* 书上星星动画效果 */
 let decoration_target = document.getElementById('decoration_target')
-let width,height,opacity,delay,top,left
-decorationAnimateStart()
+let width,opacity,delay,top,left
 function decorationAnimateStart() {
   width = randomNum(80, 120) + '%'
-  height = randomNum(80, 120) + '%'
   opacity = randomNum(2, 10)/10
   delay = randomNum(4000, 5000)
   top = randomNum(40, 60) + '%'
@@ -56,7 +47,7 @@ function decorationAnimateStart() {
 
   $('#decoration_target').animate({
     width: width,
-    height: height,
+    height: width,
     top: top,
     left: left,
   }, delay, function () {
@@ -77,3 +68,44 @@ function randomNum(minNum,maxNum){
   }
 }
 
+/* 音乐自动播放 */
+function autoPlayAudio() {
+  let ua = window.navigator.userAgent
+  if (ua.indexOf('MicroMessenger') > 0) {
+    //在微信中打开
+    /* 自动播放音乐 并且init*/
+    autoPlayAudioInWX(audio)
+  } else {
+    /* 不在微信中 */
+    audio.play();
+  }
+}
+/* 微信自动播放方法 */
+function autoPlayAudioInWX(id) {
+  var video = id
+
+  if (window.WeixinJSBridge) {
+    WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+      video.play();
+    }, false);
+  } else {
+    document.addEventListener("WeixinJSBridgeReady", function () {
+      WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+        video.play();
+      });
+    }, false);
+  }
+  video.play();
+
+  return false;
+}
+export let init = function () {
+  /* 显示旋转的播放音乐按钮 */
+  music_button.style.display = 'block'
+  /* 书上的动效 */
+  decorationAnimateStart()
+  /* 进入第三页自动播放音乐 */
+  autoPlayAudio()
+  /* 背景动效 */
+  turnBig()
+}

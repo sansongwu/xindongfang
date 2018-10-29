@@ -1,6 +1,6 @@
 module.exports = {
   /* 是否测试 */
-  isTest :false,
+  isTest :true,
   page1Ready: false,
   /* page3展示过了 */
   page3showed: false,

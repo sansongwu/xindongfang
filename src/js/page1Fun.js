@@ -4,7 +4,8 @@ const state = require('./state')
 const velocity = require('velocity-animate')
 require('velocity-animate/velocity.ui');
 const globalAnimate = require('./globalAnimate')
-const videoFun = require('./video')
+const videojs = require('./video')
+
 
 export let pullUp = function () {
   // audio2.play()
@@ -14,7 +15,7 @@ export let pullUp = function () {
   if (state.page1Ready) {
     page1ToPage2()
     /* 开始播放视频 */
-    videoFun.runVideo('videoID2')
+    videojs.runVideo('videoID2')
     // video.pause();
   }
 
@@ -94,6 +95,9 @@ function page1ToPage2() {
   }, {
     duration: 1000,
     complete() {
+      /* 移除resize事件 */
+      window.removeEventListener("resize", videojs.windowResize)
+
       /* 视频播放完执行跳转 */
       video.onended = function() {
         if (!state.page3showed) {
