@@ -1,7 +1,7 @@
 /**
  * Created by wayne on 2018/10/28.
  */
-const {page2_background, music_button, audio} = require('../getElement')
+const {page2_background, music_button, audio, book, page3} = require('../getElement')
 const velocity = require('velocity-animate')
 require('velocity-animate/velocity.ui');
 const animatejs = require('../animate/button')
@@ -100,7 +100,17 @@ function autoPlayAudioInWX(id) {
 
   return false;
 }
+
+/* 动态设置书没拉上来的位置 */
+export let positionBottom = 0
+let bookHeight = book.offsetHeight
+let screenHeight = page3.offsetHeight
+positionBottom = -(bookHeight*45/100)/screenHeight*100 + '%'
+
+
 export let init = function () {
+  /* 设置书没拉上来的位置 */
+  book.style.bottom = positionBottom
   /* 显示旋转的播放音乐按钮 */
   music_button.style.display = 'block'
   /* 书上的动效 */

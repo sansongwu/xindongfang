@@ -235,6 +235,7 @@ let setText = function (num) {
   }
   text.innerHTML = str
   init.scroll.refresh()
+  init.scroll.scrollTo(0, 0)
   setTimeout(function () {
 
   },20)

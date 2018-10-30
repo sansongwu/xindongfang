@@ -6,7 +6,7 @@ require('velocity-animate/velocity.ui');
 const globalAnimate = require('./globalAnimate')
 const state= require('./state')
 const changeBookPage = require('./changeBookPage')
-
+const page3init = require('./init/page3init')
 
 
 /* 书是否放大了  用来做上下拉是否翻页的标识 */
@@ -133,9 +133,9 @@ export let reduceImg = function () {
 
   /* 书往下推效果 */
   down()
-  /* page3.css 里 .page3 .page3-bottom .book  的 top 值 */
+  /* page3.css 里 .page3 .page3-bottom .book  的 top 值   这里设置了初始的bottom值 保证书在任何设备上 露出相同的部分  所以是page3init.positionBottom*/
   Velocity(book, {
-    bottom: '-32%'
+    bottom: page3init.positionBottom
   }, {
     duration: 300,
     // easing: "swing"
