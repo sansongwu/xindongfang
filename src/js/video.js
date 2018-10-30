@@ -31,32 +31,42 @@ if (state.isTest) {
     /* 点击播放 需要组织第二页 自动跳转第三页 */
     state.page3showed = true
     // runVideo('videoID2')
-    if (big_video.paused) {
-      big_video.play()
-      closeBgVideo()
-    } else {
-      big_video.pause();
-      openBgVideo()
-    }
+
+    androidClose()
+    // if (big_video.paused) {
+    //   closeBgVideo()
+    //   big_video.play()
+    //
+    // } else {
+    //   big_video.pause();
+    //   openBgVideo()
+    // }
   })
 }
 
 /* 给大视频增加监听 当不播放的时候 执行开始播放背景视频方法 */
-big_video.addEventListener('pause', function () {
+/*big_video.addEventListener('pause', function () {
   openBgVideo()
   // alert('监听主视频暂停')
-})
+})*/
 
 
 /* 背景视频方法 */
 /* 开始播放主视频 关闭背景视频*/
 function closeBgVideo() {
   video.style.display = 'none'
+  video.pause()
+}
+
+function androidClose() {
+  video.src = './static/video/bigvideoTest.mp4'
+  video.play()
 }
 
 /* 结束播放主视频 打开背景视频*/
 function openBgVideo() {
   video.style.display = 'inline'
+  video.play()
 }
 
 

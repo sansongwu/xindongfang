@@ -85,6 +85,9 @@ function down() {
 export let enlargeImg = function () {
   /* 让logo彻底不显示  否则会在第二页显示 */
   // page3.children[0].style.overflow = 'hidden'
+  /* 隐藏提示上拉的按钮 */
+  document.getElementById('story_button').style.display = 'none'
+
   up()
   /* 书往上拉效果 */
   Velocity(book, {
@@ -125,6 +128,9 @@ export let enlargeImg = function () {
 }
 /* 把书推回去 */
 export let reduceImg = function () {
+  /* 隐藏提示上拉的按钮 */
+  document.getElementById('story_button').style.display = 'block'
+
   /* 书往下推效果 */
   down()
   /* page3.css 里 .page3 .page3-bottom .book  的 top 值 */

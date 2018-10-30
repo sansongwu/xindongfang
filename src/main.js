@@ -74,6 +74,7 @@ window.onload = function () {
     require('./js/init')
     require('./css/changebookpage.css')
 
+    const page1init = require('./js/init/page1init')
     const musicjs = require('./js/music')
     const videojs = require('./js/video')
 

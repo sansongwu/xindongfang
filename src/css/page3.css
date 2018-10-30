@@ -185,8 +185,8 @@
   width: 68%;
   height: 30%;
   position: absolute;
-  left: 50%;
-  top: 25%;
+  left: 52%;
+  top: 47%;
   transform: translate(-50%, -50%);
   z-index: 105;
   background-color: rgba(0,0,0,0);
@@ -221,4 +221,18 @@
   transform: translate(-50%, -50%);
   width: 100%;
   opacity: 1;
+}
+
+
+/* 提示上拉 看完整书的按钮  他的故事 */
+.story-button {
+  position: absolute;
+  left: 50%;
+  bottom: 2%;
+  transform: translateX(-50%);
+  z-index: 120;
+  width: 25%;
+}
+.story-button img {
+  width: 100%;
 }

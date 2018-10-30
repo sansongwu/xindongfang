@@ -4,7 +4,8 @@
 const {page2_background, music_button, audio} = require('../getElement')
 const velocity = require('velocity-animate')
 require('velocity-animate/velocity.ui');
-
+const animatejs = require('../animate/button')
+const page3fun = require('../page3Fun')
 /* 背景图变化 */
 let isBig = false
 
@@ -108,4 +109,11 @@ export let init = function () {
   autoPlayAudio()
   /* 背景动效 */
   turnBig()
+  /* 按钮动效 */
+  animatejs.light('story_button')
+
+  /* 给拉书按钮绑定事件 */
+  document.getElementById('story_button').addEventListener('touchstart', function () {
+    page3fun.pullUp()
+  })
 }

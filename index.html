@@ -33,10 +33,7 @@
       <audio id="audio2" style="display: none;" src="./static/music/bgm2.mp3" preload="auto" loop="loop"></audio>
       <audio id="audio_page" style="display: none;" src="./static/music/changepage.mp3" preload="auto"></audio>
     </div>
-    <!-- 旋转按钮 -->
-    <div class="music-button-base music-button" id="music_button">
-      <img src="./static/img/musicPlay.png" alt="">
-    </div>
+
     <div class="index-logo" id="index_logo">
       <img src="static/img/page1/logo.png" alt="">
     </div>
@@ -91,9 +88,12 @@
         <canvas></canvas>
       </div>-->
       <!--下拉箭头-->
-      <div class="page1arrow" id="page1_arrow">
+      <!--<div class="page1arrow" id="page1_arrow">
         <div class="arrow1"></div>
         <div class="arrow2"></div>
+      </div>-->
+      <div class="page1-more" id="page1_more">
+        <img src="./static/img/page1/button.png" alt="">
       </div>
     </div>
     <!-- 第二页开始 -->
@@ -118,21 +118,43 @@
 
       </video>-->
 
+
+      <!-- source -->
       <!--x5-video-player-fullscreen="true"-->
-      <video id="videoID2"
+      <!--style="object-fit: fill;"-->
+      <!--<video id="videoID2"
              style="object-fit: fill;"
              x-webkit-airplay="true"
              playsinline="true"
              x5-video-player-type="h5"
-             x5-video-player-fullscreen="true"
+
              width="100%"
              preload="auto"
              src="./static/video/video.mp4"
              muted='muted'
              webkit-playsinline="true"
              x5-playsinline="true"
+      ></video>-->
+
+      <!--<video src="./static/video/bigvideoTest.mp4" class="big-video" id="big_video"></video>-->
+
+      <!-- 安卓测试 -->
+      <video id="videoID2"
+             style="object-fit: fill;"
+             x-webkit-airplay="true"
+             playsinline="true"
+             x5-video-player-type="h5"
+
+             width="100%"
+             preload="auto"
+             src="./static/video/video.mp4"
+             muted='muted'
+             webkit-playsinline="true"
+             x5-playsinline="true"
+
       ></video>
-      <video src="./static/video/bigvideoTest.mp4" class="big-video" id="big_video"></video>
+
+
 
     </div>
 
@@ -143,6 +165,15 @@
     <!-- 第三页开始 -->
     <!--style="background:url('static/img/page3/background-top.jpg') top no-repeat;background-size:100%"-->
     <div class="page3" id="page3"  >
+      <!-- 旋转按钮 音乐播放暂停 -->
+      <div class="music-button-base" id="music_button">
+        <img src="./static/img/musicPlay.png" alt="">
+      </div>
+      <!-- 提示上拉按钮 -->
+      <div class="story-button" id="story_button">
+        <img src="./static/img/page3/hisStoryButton.png" alt="">
+      </div>
+
       <!--<div class="cover" id="cover"></div>-->
       <div class="page3-top" id="page3_top">
         <!--<div class="logo" id="page3_logo">

@@ -23,6 +23,7 @@ module.exports = {
   audio_page: document.getElementById('audio_page'),
   video_start: document.getElementById('video_start'),
   big_video: document.getElementById('big_video'),
+  story_button: document.getElementById('story_button'),
 
 
 }

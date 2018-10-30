@@ -48,3 +48,19 @@
   width: 100%;
   opacity: 0;
 }
+
+
+/* 提示上拉箭头 */
+.page1-more {
+  position: absolute;
+  left: 50%;
+  bottom: 2%;
+  transform: translateX(-50%);
+  z-index: 120;
+  width: 25%;
+  display: none;
+}
+
+.page1-more img {
+  width: 100%;
+}
