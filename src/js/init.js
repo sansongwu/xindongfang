@@ -25,17 +25,17 @@ page3.style.top = pageSize.winH + 'px'
 
 /* 懒加载  把src 数组 赋值给img的 src*/
 let srcArr = [
-  './static/img/page3/book-content/L.jpg',
-  './static/img/page3/book-content/V.jpg',
-  './static/img/page3/book-content/Y.jpg',
-  './static/img/page3/book-content/T.jpg',
-  './static/img/page3/book-content/O.jpg',
-  './static/img/page3/book-content/I.jpg',
-  './static/img/page3/book-content/A.jpg',
-  './static/img/page3/book-content/C.jpg',
-  './static/img/page3/book-content/E.jpg',
-  './static/img/page3/book-content/D.jpg',
-  './static/img/page3/book-content/more.jpg',
+  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/L.jpg',
+  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/V.jpg',
+  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/Y.jpg',
+  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/T.jpg',
+  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/O.jpg',
+  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/I.jpg',
+  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/A.jpg',
+  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/C.jpg',
+  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/E.jpg',
+  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/D.jpg',
+  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/more.jpg',
 ]
 
 function imgTimeLazyLoad(arr) {

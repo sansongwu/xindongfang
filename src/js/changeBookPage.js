@@ -132,12 +132,12 @@ function setMark(pageNum) {
   let markList = mark_ul.children
   /* 所有的全变非点击状态 */
   for(let i = 0; i < markList.length - 1; i ++) {
-    markList[i].children[0].src = 'static/img/page3/mark/m'+(i)+'.png'
+    markList[i].children[0].src = 'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/mark/m'+(i)+'.png'
   }
   /* 当前点击的变图 */
   if (pageNum != (markList.length - 1)) {
     /* 如果点的不是最后一个 即more 则换对应的图  并且 more 的高度恢复 */
-    markList[pageNum].children[0].src = 'static/img/page3/mark/m'+pageNum+''+pageNum+'.png'
+    markList[pageNum].children[0].src = 'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/mark/m'+pageNum+''+pageNum+'.png'
     markList[markList.length-1].style.top = '-0.5rem'
   } else {
     /* 如果点的是more */

@@ -13,7 +13,7 @@ music_button.addEventListener('touchstart', function () {
 
 
 /*audio.addEventListener('pause', function () {
-  music_button.children[0].src = './static/img/musicStop.png'
+  music_button.children[0].src = 'https://static.aotuer.com/h5/2018/xdf25/static/img/musicStop.png'
   music_button.className = 'music-button-base'
 })*/
 
@@ -30,14 +30,14 @@ function playPause() {
 /* 开启BGM */
 export let openBGM = function () {
   audio.play();
-  music_button.children[0].src = './static/img/musicPlay.png'
+  music_button.children[0].src = 'https://static.aotuer.com/h5/2018/xdf25/static/img/musicPlay.png'
   // music_button.className = 'music-button-base music-button'
 }
 
 /* 关闭BGM */
 export let closeBGM = function () {
   audio.pause();
-  music_button.children[0].src = './static/img/musicStop.png'
+  music_button.children[0].src = 'https://static.aotuer.com/h5/2018/xdf25/static/img/musicStop.png'
   // music_button.className = 'music-button-base'
 }
 /* 翻书音效 */

@@ -1,8 +1,8 @@
 let img_url = [
-  './static/img/page3/book-content/person1.jpg',
-  './static/img/page3/book-content/person2.jpg',
-  './static/img/page3/book-content/person3.jpg',
-  './static/img/page3/book-content/person4.jpg'
+  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/person1.jpg',
+  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/person2.jpg',
+  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/person3.jpg',
+  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/person4.jpg'
 ]
 export let loading = function (fn) {
   let numbers = 0;
@@ -26,7 +26,7 @@ export let loading = function (fn) {
           $('.shade').hide();
           let tagHtml = "";
           for (let i = 1; i <= 41; i++) {
-            tagHtml += '<div style="background:url(\'./static/img/page3/book-content/person1.jpg\') center top no-repeat;background-size:100%"></div>'
+            tagHtml += '<div style="background:url(\'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/person1.jpg\') center top no-repeat;background-size:100%"></div>'
           }
           $(".book-content").append(tagHtml);
         });
