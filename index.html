@@ -30,8 +30,9 @@
     <div class="music">
       <!-- muted 静音  controls进度条   -->
       <!--<audio id="audio2" style="display: none;" src="./static/music/music.m4a" preload="auto" loop="loop" autoplay="autoplay"></audio>-->
-      <audio id="audio2" style="display: none;" src="./static/music/bgm2.mp3" preload="auto" loop="loop"></audio>
       <audio id="audio_page" style="display: none;" src="./static/music/changepage.mp3" preload="auto"></audio>
+      <audio id="audio2" style="display: none;" src="./static/music/bgm2.mp3" preload="auto" loop="loop"></audio>
+
     </div>
 
     <div class="index-logo" id="index_logo">
@@ -101,7 +102,9 @@
       <!-- page1的背景图  让过度更圆滑 -->
       <img class="page2-background" id="page2_background" src="./static/img/page1/background.jpg" alt="loading">
       <!-- 开始播放按钮 绿方块-->
-      <div class="video-start" id="video_start"></div>
+      <div class="video-start" id="video_start">
+        <img src="./static/img/page2/videoPlay.png" alt="">
+      </div>
 
       <!--<video
         id="video1"
@@ -122,6 +125,23 @@
       <!-- source -->
       <!--x5-video-player-fullscreen="true"-->
       <!--style="object-fit: fill;"-->
+      <video id="videoID2"
+             style="object-fit: fill;"
+             x-webkit-airplay="true"
+             playsinline="true"
+             x5-video-player-type="h5"
+             x5-video-player-fullscreen="true"
+             width="100%"
+             preload="auto"
+             src="./static/video/video.mp4"
+             muted='muted'
+             webkit-playsinline="true"
+             x5-playsinline="true"
+      ></video>
+
+      <video src="./static/video/bigvideoTest.mp4" class="big-video" id="big_video"></video>
+
+      <!-- 安卓测试 -->
       <!--<video id="videoID2"
              style="object-fit: fill;"
              x-webkit-airplay="true"
@@ -134,25 +154,8 @@
              muted='muted'
              webkit-playsinline="true"
              x5-playsinline="true"
+
       ></video>-->
-
-      <!--<video src="./static/video/bigvideoTest.mp4" class="big-video" id="big_video"></video>-->
-
-      <!-- 安卓测试 -->
-      <video id="videoID2"
-             style="object-fit: fill;"
-             x-webkit-airplay="true"
-             playsinline="true"
-             x5-video-player-type="h5"
-
-             width="100%"
-             preload="auto"
-             src="./static/video/video.mp4"
-             muted='muted'
-             webkit-playsinline="true"
-             x5-playsinline="true"
-
-      ></video>
 
 
 
@@ -190,6 +193,10 @@
 
       <div class="page3-bottom" id="page3_bottom">
         <div class="book" id="book">
+          <!-- 点击图片  的按钮图 -->
+          <div class="click-more" id="click_more">
+            <img src="./static/img/page3/clickImg.png" alt="">
+          </div>
           <!-- 动效 -->
           <div class="book-decoration">
             <img src="./static/img/page3/decoration.png" alt="" id="decoration_target">

@@ -6,6 +6,7 @@ const velocity = require('velocity-animate')
 require('velocity-animate/velocity.ui');
 const animatejs = require('../animate/button')
 const page3fun = require('../page3Fun')
+// const state = require('../state')
 /* 背景图变化 */
 let isBig = false
 
@@ -121,6 +122,7 @@ export let init = function () {
   turnBig()
   /* 按钮动效 */
   animatejs.light('story_button')
+  animatejs.light('click_more')
 
   /* 给拉书按钮绑定事件 */
   document.getElementById('story_button').addEventListener('touchstart', function () {

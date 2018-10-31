@@ -12,10 +12,10 @@ music_button.addEventListener('touchstart', function () {
 
 
 
-audio.addEventListener('pause', function () {
+/*audio.addEventListener('pause', function () {
   music_button.children[0].src = './static/img/musicStop.png'
   music_button.className = 'music-button-base'
-})
+})*/
 
 
 function playPause() {
@@ -46,32 +46,40 @@ export let closeBGM = function () {
 }*/
 
 
+/* 微信自动播放音乐 */
+/* 自动播放翻书声音 背景音乐  播放后马上停止 这样到page3能马上播*/
+function  audioAutoPlay(targetEl){
+  var audio = targetEl
+
+  if (window.WeixinJSBridge) {
+    WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+      audio.play();
+      audio.pause()
+    }, false);
+  } else {
+    document.addEventListener("WeixinJSBridgeReady", function () {
+      WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+        audio.play();
+        audio.pause()
+      });
+    }, false);
+  }
+  audio.play();
+  audio.pause()
+
+  return false;
+}
+audioAutoPlay(audio_page)
+audioAutoPlay(audio)
+
+
 /*window.onload = function() {
   let music = document.getElementById('t-rex-roar')
   music.volume = 0.1;
   /!*music.play()*!/
 }*/
 
-/* 微信自动播放音乐 */
-/*function  audioAutoPlay(id){
-  var audio = document.getElementById(id);
 
-  if (window.WeixinJSBridge) {
-    WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
-      audio.play();
-    }, false);
-  } else {
-    document.addEventListener("WeixinJSBridgeReady", function () {
-      WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
-        audio.play();
-      });
-    }, false);
-  }
-  audio.play();
-
-  return false;
-}*/
-// audioAutoPlay('audio2')
 
 
 /*if (ua.match(/MicroMessenger/i) == "micromessenger") {

@@ -1,6 +1,7 @@
+let userAgent = window.navigator.userAgent
 module.exports = {
   /* 是否测试 */
-  isTest :true,
+  isTest :false,
   page1Ready: false,
   /* page3展示过了 */
   page3showed: false,
@@ -9,5 +10,12 @@ module.exports = {
   /* 视频是否正在播放 */
 
   /* 是不是能翻书  因为最后一页的分享也是通过touchstart实现的click */
-  canChangeBookPage:true
+  canChangeBookPage:true,
+
+  /* 书是不是放大了 */
+  isBookBig: false,
+
+  /* 设备信息 */
+  ua: window.navigator.userAgent,
+  isIOS: !!userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
 }

@@ -1,6 +1,6 @@
 
 const changePage = require('./changePage')
-const {page3, book, mark_ul, audio_page, story_button} = require('./getElement')
+const {page3, book, mark_ul, audio_page, story_button, click_more} = require('./getElement')
 const pageSize = require('./pageSize')
 const velocity = require('velocity-animate')
 require('velocity-animate/velocity.ui');
@@ -12,7 +12,7 @@ const init = require('./init')
 
 
 /* 当前页 */
-let currentPage = 0
+export let currentPage = 0
 
 /* 点击换页 */
 const list = mark_ul.children
@@ -26,6 +26,9 @@ for (let i = 0; i < list.length; i ++) {
 
     /* 换button图的src */
     changeImgSrc(currentPage)
+    /* 是否展示 点击跳转 按钮图 */
+    showMoreButton(currentPage)
+
 
     $("#flipbook").turn("page", (i+1))
 
@@ -60,6 +63,8 @@ export let goPage = function () {
 
   /* 换button图的src */
   changeImgSrc(currentPage)
+  /* 是否展示 点击跳转 按钮图 */
+  showMoreButton(currentPage)
 
   /* 翻书声音 */
   audio_page.play()
@@ -93,6 +98,9 @@ export let backPage = function () {
 
   /* 换button图的src */
   changeImgSrc(currentPage)
+  /* 是否展示 点击跳转 按钮图 */
+  showMoreButton(currentPage)
+
 
   /* 翻书声音 */
   audio_page.play()
@@ -141,11 +149,13 @@ function setMark(pageNum) {
 book.style.height = bookHeight + 'px'
 
 let strArr = [
-  ['我在做新东方的过程中，从没有放弃阅读，','从大学毕业到现在，每年阅读一百多本书，','认真反复读的书达到十几本到二十本。','我家里的纸质书籍有一万多本，每个月还在以30—50本的速度增加，',
-    '每年购买新书的数量是500多本，再加上出版社寄给我的就更多了。','&nbsp;','认准一件事，就坚持做下去。','&nbsp','其实这个世界上任何的成功都是需要反复努力才能达成的。',
-    '爱情需要努力，学习需要努力，未来的事业更需要努力，','人生一辈子想要有所得，必须不断努力。','&nbsp','人的每一天都是很琐碎的，','把每天做的事情比喻成每天捡一块砖头的话，',
-    '大部分人一辈子到最后只是捡了一堆砖头。','对于有些人来说他的琐碎是为了给自己的人生添砖加瓦，','他们的每一块砖都会变成自己理想的铺垫，从而盖起自己的理想大厦。'],
-  ['你不去飞翔的话不知道天空有多么的远大，不出去看的话，不知道大地有多么的美丽，','&nbsp;','周成刚带着自己的相机，足迹遍及南极、非洲、美洲、大洋洲、亚洲，印象最深的就是在非洲，成千上万的角马在过马拉河，寻找更好的生活。不论遇到什么困难，都要走下去，这就是生生不息。',
+  [
+    '我在做新东方的过程中，从没有放弃阅读，从大学毕业到现在，每年阅读一百多本书，认真反复读的书达到十几本到二十本。我家里的纸质书籍有一万多本，每个月还在以30—50本的速度增加，每年购买新书的数量是500多本，再加上出版社寄给我的就更多了。',
+    '&nbsp;','认准一件事，就坚持做下去。',
+    '&nbsp;','其实这个世界上任何的成功都是需要反复努力才能达成的。爱情需要努力，学习需要努力，未来的事业更需要努力，人生一辈子想要有所得，必须不断努力。',
+    '&nbsp;','人的每一天都是很琐碎的，把每天做的事情比喻成每天捡一块砖头的话，大部分人一辈子到最后只是捡了一堆砖头。对于有些人来说他的琐碎是为了给自己的人生添砖加瓦，他们的每一块砖都会变成自己理想的铺垫，从而盖起自己的理想大厦。',
+  ],
+  ['「你不去飞翔的话不知道天空有多么的远大，不出去看的话， 不知道大地有多么的美丽，」','&nbsp;','周成刚带着自己的相机，足迹遍及南极、非洲、美洲、大洋洲、亚洲，印象最深的就是在非洲，成千上万的角马在过马拉河，寻找更好的生活。不论遇到什么困难，都要走下去，这就是生生不息。',
     '&nbsp;','我们走向世界，其实也是一次迁徙，就是为了寻找更好的生活。','&nbsp;','工作生活的另一面，他用镜头聚焦人文，横跨17个国家，探索102所世界名校，点亮更多学生心中的航标灯。',
     '&nbsp;','著名的哲学家康德说过，世界上有两件东西能震撼人们的心灵：一件是我们心中崇高的道德标准；另一件是我们头顶上灿烂的星空。',
     '&nbsp;','当我们走了之后，看了之后，会有不同的文化、不同的语言、不同的人种、不同的价值观，就会让你变得更加宽容、更加多元化，思考一个问题的时候会从不同的角度去思考。'
@@ -250,16 +260,28 @@ setText(currentPage)
 let start = 0
 let end = 0
 
-/* 翻书到最后一页的时候 他的故事图 换 成 点击图片 */
+/* 翻书到最后一页的时候 他的故事图 换 成 点击图片
+* 需求修改  到最后一页的时候 不显示  ‘他的故事’ 的图 */
 function changeImgSrc(pageNum) {
   console.log(pageNum)
-  if (pageNum == (mark_ul.children.length - 1)) {
+  if (pageNum == (mark_ul.children.length - 1) || state.isBookBig) {
     /* 最后一页 换图 */
-    story_button.children[0].src = './static/img/page3/clickImg.png'
+    story_button.style.display = 'none'
   } else {
-    story_button.children[0].src = './static/img/page3/hisStoryButton.png'
+    story_button.style.display = 'block'
   }
 }
+
+/* 到最后一页  ‘点击图片’ 的图 */
+function showMoreButton(pageNum) {
+  if (pageNum == (mark_ul.children.length - 1)) {
+    click_more.style.display = 'block'
+  } else {
+    click_more.style.display = 'none'
+  }
+}
+
+
 
 link.addEventListener('touchstart', function (e) {
   // wx.miniProgram.navigateTo({url: 'www.baidu.com'})
@@ -287,7 +309,7 @@ link.addEventListener('touchend', function (e) {
   e.preventDefault()
   if (Math.abs(end - start) < 10 || end == 0) {
 
-    window.location.href="https://www.baidu.com"
+    window.location.href = "https://mp.weixin.qq.com/mp/homepage?__biz=MjM5NzQzOTgyMA%3D%3D&hid=11&sn=62d2d21251348be0e55c37ae89de28e1&devicetype=iOS12.0.1&version=16070322&lang=zh_CN&nettype=3G+&ascene=1&fontScale=100&scene=1&from=singlemessage&isappinstalled=0"
   }
 
   return false

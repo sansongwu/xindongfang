@@ -1,4 +1,4 @@
-const {index_logo, index_title, page2_background, page3, page3_title, page3_info} = require('./getElement')
+const {index_logo, index_title, page2_background, page3, page3_title, page3_info, video_start} = require('./getElement')
 const state = require('./state')
 const velocity = require('velocity-animate')
 require('velocity-animate/velocity.ui');
@@ -67,7 +67,7 @@ let showIndexTitle = function () {
   page3_title.style.display = 'none'
   page3_info.style.display = 'none'
   $('#index_title').animate({
-    marginTop: '20%',
+    marginTop: '15%',
     opacity: '1'
   }, 300)
 }
@@ -79,8 +79,10 @@ function showLogoTitle() {
 
 /* 跳转第三页 */
 export let autoVideoFinish = function () {
-  /* 触发翻页 */
-  $('#music_play').click()
+  /* 触发翻页音效 */
+  // $('#music_play').click()
+  /* 隐藏播放键 */
+  video_start.style.display = 'none'
 
   /* 让视频循环播放 */
   videojs.addLoop()
@@ -123,6 +125,9 @@ export let autoVideoFinish = function () {
 }
 
 export let backToPage2 = function () {
+  /* 显示播放键 */
+  video_start.style.display = 'block'
+
   /* 继续播放视频 */
   videojs.runVideo('videoID2')
 

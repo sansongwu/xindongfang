@@ -24,6 +24,7 @@ module.exports = {
   video_start: document.getElementById('video_start'),
   big_video: document.getElementById('big_video'),
   story_button: document.getElementById('story_button'),
+  click_more: document.getElementById('click_more'),
 
 
 }

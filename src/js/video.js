@@ -6,8 +6,39 @@ const state = require('./state')
 /*let video = document.getElementById('video1')
 video.style.width = pageSize.winW*/
 const {video, audio, page3, big_video} = require('./getElement')
-let ua = window.navigator.userAgent
+let ua = state.ua
+let isIOS = state.isIOS
 console.log(ua)
+if (isIOS) {
+  // alert('ios')
+  if (true) {
+    video_start.style.display = 'block'
+    /* 点击开始播放 */
+    document.getElementById('video_start').addEventListener('touchstart', function () {
+      /* 点击播放 需要组织第二页 自动跳转第三页 */
+      /*state.page3showed = true
+      // runVideo('videoID2')
+
+      if (big_video.paused) {
+        closeBgVideo()
+        big_video.play()
+
+      } else {
+        big_video.pause();
+        openBgVideo()
+      }*/
+    })
+  }
+
+  /* 给大视频增加监听 当不播放的时候 执行开始播放背景视频方法 */
+  big_video.addEventListener('pause', function () {
+    openBgVideo()
+    // alert('监听主视频暂停')
+  })
+
+} else {
+  // alert('android')
+}
 /*if (ua.indexOf('MicroMessenger') > 0) {
   //在微信中打开
   autoPlayAudio('videoID2');
@@ -24,31 +55,7 @@ console.log(ua)
 })*/
 
 
-if (state.isTest) {
-  video_start.style.display = 'block'
-  /* 点击开始播放 */
-  document.getElementById('video_start').addEventListener('touchstart', function () {
-    /* 点击播放 需要组织第二页 自动跳转第三页 */
-    state.page3showed = true
-    // runVideo('videoID2')
 
-    androidClose()
-    // if (big_video.paused) {
-    //   closeBgVideo()
-    //   big_video.play()
-    //
-    // } else {
-    //   big_video.pause();
-    //   openBgVideo()
-    // }
-  })
-}
-
-/* 给大视频增加监听 当不播放的时候 执行开始播放背景视频方法 */
-/*big_video.addEventListener('pause', function () {
-  openBgVideo()
-  // alert('监听主视频暂停')
-})*/
 
 
 /* 背景视频方法 */

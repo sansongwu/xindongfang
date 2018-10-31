@@ -134,9 +134,13 @@ page3.addEventListener('touchend', function (e) {
     }
     end()
     console.log('page3 end')
+
+    /*strategies.leftRight(function () {
+      audio_page.play()
+    }, function () {
+      audio_page.play()
+    })*/
     strategies.allDirection(page3Fun.pullUp, page3Fun.pullDown, page3Fun.pullLeft, page3Fun.pullRight)
-    /*strategies.pullUp(page3Fun.pullUp)
-    strategies.pullDown(page3Fun.pullDown)*/
 })
 page3.addEventListener('touchcancel', function (e) {
   if (!state.touchFromPage) {
@@ -145,13 +149,7 @@ page3.addEventListener('touchcancel', function (e) {
   end()
   console.log('page3 end')
   strategies.allDirection(page3Fun.pullUp, page3Fun.pullDown, page3Fun.pullLeft, page3Fun.pullRight)
-  /*strategies.pullUp(page3Fun.pullUp)
-   strategies.pullDown(page3Fun.pullDown)*/
 })
-// page4.addEventListener('touchend', function () {
-//     end()
-//     strategies.pullDown(page4Fun.pullDown)
-// })
 
 function pullUp() {
     console.log('向上滑动的方法')

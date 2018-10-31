@@ -64,10 +64,6 @@ window.onload = function () {
     timer = null*/
     console.log('init')
 
-    /* 触发翻书声音 */
-    $('#music_play').on('click', function () {
-      audio_page.play()
-    })
 
     /* 关闭遮罩 */
     document.getElementById('loading_div').style.display = 'none'
@@ -81,7 +77,7 @@ window.onload = function () {
 
     const move = require('./js/touchMove')
     require('./js/changeBookPage')
-
+    require('./js/wxShare')
   }
 }
 /* 音频预加载 */
