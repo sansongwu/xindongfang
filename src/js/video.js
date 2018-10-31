@@ -11,7 +11,7 @@ let isIOS = state.isIOS
 console.log(ua)
 if (isIOS) {
   // alert('ios')
-  if (true) {
+  if (false) {
     video_start.style.display = 'block'
     /* 点击开始播放 */
     document.getElementById('video_start').addEventListener('touchstart', function () {
