@@ -9,7 +9,7 @@ const {video, audio, audio_page, music_button} = require('./js/getElement')
 const state = require('./js/state')
 // require('./css/video.css')
 
-// require('./css.css')
+
 // require('./js/smoke/page1smoke')
 
 if (state.isTest) {

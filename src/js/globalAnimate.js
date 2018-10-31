@@ -126,7 +126,7 @@ export let autoVideoFinish = function () {
 
 export let backToPage2 = function () {
   /* 显示播放键 */
-  video_start.style.display = 'block'
+  // video_start.style.display = 'block'
 
   /* 继续播放视频 */
   videojs.runVideo('videoID2')
