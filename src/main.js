@@ -78,6 +78,7 @@ window.onload = function () {
     const move = require('./js/touchMove')
     require('./js/changeBookPage')
     require('./js/wxShare')
+    require('./js/init/iOSresize')
   }
 }
 /* 音频预加载 */
