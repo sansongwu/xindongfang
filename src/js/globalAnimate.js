@@ -79,6 +79,12 @@ function showLogoTitle() {
 
 /* 跳转第三页 */
 export let autoVideoFinish = function () {
+
+  /* 如果安卓正在播放 主视频 不能跳转 */
+  if (state.androidBigVideo) {
+    return
+  }
+
   /* 触发翻页音效 */
   // $('#music_play').click()
   /* 隐藏播放键 */
@@ -126,7 +132,7 @@ export let autoVideoFinish = function () {
 
 export let backToPage2 = function () {
   /* 显示播放键 */
-  // video_start.style.display = 'block'
+  video_start.style.display = 'block'
 
   /* 继续播放视频 */
   videojs.runVideo('videoID2')

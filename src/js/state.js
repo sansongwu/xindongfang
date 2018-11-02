@@ -1,7 +1,7 @@
 let userAgent = window.navigator.userAgent
 module.exports = {
   /* 是否测试 */
-  isTest :false,
+  isTest :true,
   page1Ready: false,
   /* page3展示过了 */
   page3showed: false,
@@ -17,5 +17,9 @@ module.exports = {
 
   /* 设备信息 */
   ua: window.navigator.userAgent,
-  isIOS: !!userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
+  isIOS: !!userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+
+  /* 安卓是不是正在播放 主视频  如果是  那么禁止滑动到第三页  安卓返回正常的返回
+  * 如果不是  可以滑动到第三页  安卓返回 一次返回*/
+  androidBigVideo: false
 }

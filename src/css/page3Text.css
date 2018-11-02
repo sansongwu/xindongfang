@@ -17,10 +17,10 @@
 }
 
 
-@font-face{
-  　　font-family: "思源宋体";
-  　　src: url('');
-}
+/*@font-face{*/
+  /*　　font-family: "思源宋体";*/
+  /*　　src: url('');*/
+/*}*/
 
 .text-wrap p {
   /*background-color: #5E740B;*/

@@ -13,6 +13,7 @@ export let pullUp = function () {
   // changePage.goDown()
   /* 如果诗词出来了  才能去下一页 */
   if (state.page1Ready) {
+
     page1ToPage2()
     /* 开始播放视频 */
     videojs.runVideo('videoID2')
@@ -96,10 +97,10 @@ function page1ToPage2() {
   }, {
     duration: 1000,
     complete() {
-      /* 移除resize事件 */
-      window.removeEventListener("resize", videojs.windowResize)
+      /* 移除resize事件  不需要给ios监听了 值给安卓监听  安卓微信无法横屏*/
+      // window.removeEventListener("resize", videojs.windowResize)
 
-      /* 视频播放完执行跳转 */
+      /* 视频播放完执行跳转 第三页存在过  不自动跳转  */
       video.onended = function() {
         if (!state.page3showed) {
           globalAnimate.autoVideoFinish()
