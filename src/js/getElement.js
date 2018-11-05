@@ -25,6 +25,7 @@ module.exports = {
   big_video: document.getElementById('big_video'),
   story_button: document.getElementById('story_button'),
   click_more: document.getElementById('click_more'),
+  screen_across: document.getElementById('screen_across'),
 
 
 }

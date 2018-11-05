@@ -21,5 +21,7 @@ module.exports = {
 
   /* 安卓是不是正在播放 主视频  如果是  那么禁止滑动到第三页  安卓返回正常的返回
   * 如果不是  可以滑动到第三页  安卓返回 一次返回*/
-  androidBigVideo: false
+  androidBigVideo: false,
+  /* iOS 允许横屏 */
+  iOSShouldAcross: false
 }

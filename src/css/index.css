@@ -116,14 +116,14 @@ ul,li {
   height: 100%;
   background-color: #222222;
   color: #555555;
-  font-size: 0.8em;
+  font-size: 0.4em;
   text-align: center;
   display: flex;
   display: -webkit-flex;
   align-items: center;
   justify-content: center;
   z-index: 200;
-  /*display: none;*/
+  display: none;
 }
 .screen-across h1 {
 
