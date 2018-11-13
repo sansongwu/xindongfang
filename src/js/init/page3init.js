@@ -6,7 +6,7 @@ const velocity = require('velocity-animate')
 require('velocity-animate/velocity.ui');
 const animatejs = require('../animate/button')
 const page3fun = require('../page3Fun')
-// const state = require('../state')
+const state = require('../state')
 /* 背景图变化 */
 let isBig = false
 
@@ -128,4 +128,6 @@ export let init = function () {
   document.getElementById('story_button').addEventListener('touchstart', function () {
     page3fun.pullUp()
   })
+
+
 }

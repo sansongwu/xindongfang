@@ -35,7 +35,7 @@ let hideIndexTitle = function () {
     opacity: '0'
   }, 300, function () {
     page3_title.style.display = 'block'
-    page3_info.style.display = 'block'
+    // page3_info.style.display = 'block'
 
   })
 }
@@ -65,7 +65,7 @@ let showIndexTitle = function () {
     duration: 300,
   })*/
   page3_title.style.display = 'none'
-  page3_info.style.display = 'none'
+  // page3_info.style.display = 'none'
   $('#index_title').animate({
     marginTop: '15%',
     opacity: '1'
@@ -88,7 +88,7 @@ export let autoVideoFinish = function () {
   /* 触发翻页音效 */
   // $('#music_play').click()
   /* 隐藏播放键 */
-  video_start.style.display = 'none'
+  videojs.hideVideoIcon()
 
   /* 让视频循环播放 */
   videojs.addLoop()
@@ -109,8 +109,12 @@ export let autoVideoFinish = function () {
       /* 初始化第三页 */
       if (!state.page3showed) {
         page3init.init()
+
       } else {
         /* 播放音乐 显示icon */
+        if (state.isMusicPlay) {
+
+        }
         audiojs.openBGM()
         music_button.style.display = 'block'
       }
@@ -132,13 +136,13 @@ export let autoVideoFinish = function () {
 
 export let backToPage2 = function () {
   /* 显示播放键 */
-  video_start.style.display = 'block'
+  videojs.showVideoIcon()
 
   /* 继续播放视频 */
   videojs.runVideo('videoID2')
 
   /* 关闭音乐 以及icon */
-  audiojs.closeBGM()
+  audiojs.closeBGM(true)
   music_button.style.display = 'none'
 
   /* 恢复logo  title */

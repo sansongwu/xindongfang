@@ -4,7 +4,7 @@
 const pageSize = require('./pageSize')
 const state = require('./state')
 /*let video = document.getElementById('video1')
-video.style.width = pageSize.winW*/
+ video.style.width = pageSize.winW*/
 const {video, audio, page3, big_video, video_start, index_logo, index_title, page2_background, page2} = require('./getElement')
 
 /* 安卓全屏触发 resize 调整页面尺寸 */
@@ -19,12 +19,20 @@ export let windowResize = function () {
 
 }
 
+export let showVideoIcon = function () {
+  // video_start.style.display = 'block'
+}
+export let hideVideoIcon = function () {
+  video_start.style.display = 'none'
+}
+
 let ua = state.ua
 let isIOS = state.isIOS
 console.log(ua)
 
 /* 苹果 安卓 播放主视频 */
-video_start.style.display = 'block'
+// showVideoIcon()
+hideVideoIcon()
 if (isIOS) {
   // alert('ios')
   /* 点击开始播放 */
@@ -66,10 +74,10 @@ if (isIOS) {
   window.addEventListener('resize', windowResize)
 
   /**/
-  big_video.style.display = 'none'
+  hideVideoIcon()
   big_video.src = ''
 
-  androidVideo(video ,video_start)
+  androidVideo(video, video_start)
   function androidVideo(videoEle, playButton) {
     let button2 = playButton
     let video = videoEle
@@ -89,11 +97,10 @@ if (isIOS) {
     /* 播放背景视频 */
     function bgVideoPlay() {
       /* 显示元素 */
-      video_start.style.display = 'block'
+      showVideoIcon()
       index_logo.style.display = 'block'
       index_title.style.display = 'block'
       page2_background.style.display = 'block'
-
 
 
       video.removeAttribute('controls')
@@ -105,10 +112,11 @@ if (isIOS) {
         state.androidBigVideo = false
       }, 200)
     }
+
     /* 播放主视频 */
     function realVideoPlay() {
       /* 隐藏元素 */
-      video_start.style.display = 'none'
+      hideVideoIcon()
       index_logo.style.display = 'none'
       index_title.style.display = 'none'
       page2_background.style.display = 'none'
@@ -128,7 +136,7 @@ if (isIOS) {
     video.addEventListener("x5videoexitfullscreen", function () {
       /* 播放主视频的时候 不允许一键退出 */
       if (!state.androidBigVideo) {
-        if(WeixinJSBridge) {
+        if (WeixinJSBridge) {
           WeixinJSBridge.call('closeWindow');
         }
       }
@@ -137,21 +145,20 @@ if (isIOS) {
 }
 
 
-
 /*if (ua.indexOf('MicroMessenger') > 0) {
-  //在微信中打开
-  autoPlayAudio('videoID2');
-  audioAutoPlay('audio2')
-} else {
-  // alert('不在微信中')
-   $('#videoID2').get(0).play();
-   $('#audio2').get(0).play();
-}*/
+ //在微信中打开
+ autoPlayAudio('videoID2');
+ audioAutoPlay('audio2')
+ } else {
+ // alert('不在微信中')
+ $('#videoID2').get(0).play();
+ $('#audio2').get(0).play();
+ }*/
 
 /*document.addEventListener('touchstart', function () {
-  target.play()
+ target.play()
 
-})*/
+ })*/
 
 
 
@@ -169,7 +176,6 @@ function openBgVideo() {
   video.style.display = 'inline'
   video.play()
 }
-
 
 
 /* 开始播放方法 */

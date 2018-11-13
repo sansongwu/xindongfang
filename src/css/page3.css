@@ -34,7 +34,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: 55%;
-  top:50%;
+  top:75%;
   display: none;
 }
 .page3 .page3-top .title img {
@@ -47,6 +47,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: 60%;
+  display: none;
 }
 .page3 .page3-top .info img {
   display: block;

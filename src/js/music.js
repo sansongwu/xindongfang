@@ -2,6 +2,7 @@
  * Created by wayne on 2018/10/21.
  */
 const {audio, music_button, audio_page} = require('./getElement')
+const state = require('./state')
 /*audio.addEventListener('pause', function(){
   audio.play()
 })*/
@@ -18,7 +19,7 @@ music_button.addEventListener('touchstart', function () {
 })*/
 
 
-function playPause() {
+export let playPause = function () {
   var music = audio
   if (music.paused) {
     openBGM()
@@ -30,13 +31,17 @@ function playPause() {
 /* 开启BGM */
 export let openBGM = function () {
   audio.play();
+  state.isMusicPlay = true
   music_button.children[0].src = 'https://static.aotuer.com/h5/2018/xdf25/static/img/musicPlay.png'
   // music_button.className = 'music-button-base music-button'
 }
 
 /* 关闭BGM */
-export let closeBGM = function () {
+export let closeBGM = function (withoutState) {
   audio.pause();
+  if (withoutState) {
+    state.isMusicPlay = false
+  }
   music_button.children[0].src = 'https://static.aotuer.com/h5/2018/xdf25/static/img/musicStop.png'
   // music_button.className = 'music-button-base'
 }

@@ -4,9 +4,10 @@ const pageSize = require('./pageSize')
 const velocity = require('velocity-animate')
 require('velocity-animate/velocity.ui');
 const globalAnimate = require('./globalAnimate')
-const state= require('./state')
+const state = require('./state')
 const changeBookPage = require('./changeBookPage')
 const page3init = require('./init/page3init')
+const params = require('./config/params')
 
 
 /* 书是否放大了  用来做上下拉是否翻页的标识 */
@@ -58,10 +59,10 @@ function up() {
     width: '45%'
   }, 300)
 
-  $('#page3_info').animate({
+  /*$('#page3_info').animate({
     top: '10%',
     width: '50%'
-  }, 300)
+  }, 300)*/
 }
 function down() {
   $('#index_logo').animate({
@@ -70,14 +71,14 @@ function down() {
   }, 300)
 
   $('#page3_title').animate({
-    top: '50%',
+    top: `${params.page3_title_top}%`,
     width: '55%'
   }, 300)
 
-  $('#page3_info').animate({
+  /*$('#page3_info').animate({
     top: '65%',
     width: '65%'
-  }, 300)
+  }, 300)*/
 }
 
 

@@ -23,5 +23,7 @@ module.exports = {
   * 如果不是  可以滑动到第三页  安卓返回 一次返回*/
   androidBigVideo: false,
   /* iOS 允许横屏 */
-  iOSShouldAcross: false
+  iOSShouldAcross: false,
+  /* 是否正在播放音乐 */
+  isMusicPlay: true
 }
