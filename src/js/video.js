@@ -20,7 +20,7 @@ export let windowResize = function () {
 }
 
 export let showVideoIcon = function () {
-  // video_start.style.display = 'block'
+  video_start.style.display = 'block'
 }
 export let hideVideoIcon = function () {
   video_start.style.display = 'none'
@@ -31,8 +31,8 @@ let isIOS = state.isIOS
 console.log(ua)
 
 /* 苹果 安卓 播放主视频 */
-// showVideoIcon()
-hideVideoIcon()
+showVideoIcon()
+// hideVideoIcon()
 if (isIOS) {
   // alert('ios')
   /* 点击开始播放 */
@@ -124,7 +124,7 @@ if (isIOS) {
 
 
       state.androidBigVideo = true
-      video.src = './static/video/bigvideoTest.mp4'
+      video.src = './static/video/big.mp4'
       video.controls = 'controls'
       video.removeAttribute('x5-video-player-fullscreen')
       video.style = ''
@@ -167,7 +167,7 @@ if (isIOS) {
 /* 背景视频方法 */
 /* 开始播放主视频 关闭背景视频*/
 function closeBgVideo() {
-  video.style.display = 'none'
+  // video.style.display = 'none'
   video.pause()
 }
 
