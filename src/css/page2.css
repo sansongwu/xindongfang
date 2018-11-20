@@ -32,16 +32,28 @@
 }
 
 .video-start {
-  width: 3rem;
-  height: 3rem;
+  width: 100%;
+  height:100%;
   position: absolute;
   z-index: 2;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   /*background-color: #5E740B;*/
   /*display: none;*/
 }
-.video-start img {
+.video-start .wrap {
   width: 100%;
+  height:20%;
+  position: absolute;
+  left: 50%;
+  top: 47%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.video-start img {
+  width: 12%;
+}
+
+.video-start-word {
+  color: #fafafa;
+  font-size: 12px;
 }
