@@ -73,8 +73,7 @@ if (isIOS) {
   /* 增加resize事件监听 */
   window.addEventListener('resize', windowResize)
 
-  /**/
-  hideVideoIcon()
+  /* 清除主视频src 因为安卓是通过替换背景视频src实现播放视频的 */
   big_video.src = ''
 
   androidVideo(video, video_start)
