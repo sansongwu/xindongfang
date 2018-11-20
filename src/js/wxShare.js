@@ -7,10 +7,13 @@ var shareParam = {
 };
 
 wx.ready(function () {
+  
   iniShare(shareParam);
 })
 
-wx.error(function (res) {});
+wx.error(function (res) {
+  console.log(res)
+});
 
 function iniShare(data) {
   var shareData = {
