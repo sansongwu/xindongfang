@@ -40,7 +40,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   /*background-color: #5E740B;*/
-  display: none;
+  /*display: none;*/
 }
 .video-start img {
   width: 100%;

@@ -108,6 +108,7 @@ ul,li {
   top: 0;
   left: 0;
   z-index: 35;
+  background-color: #111111;
 }
 
 /* 横屏提示 */
