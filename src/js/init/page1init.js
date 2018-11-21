@@ -6,4 +6,4 @@ function page1Button() {
 }
 
 /* 按钮动效 */
-animatejs.light('page1_more')
+animatejs.light('page_more')

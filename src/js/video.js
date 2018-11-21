@@ -3,9 +3,11 @@
  */
 const pageSize = require('./pageSize')
 const state = require('./state')
+const params = require('./config/params')
+const {hideMoreArrow, showMoreArrow} = require('./globalAnimate')
 /*let video = document.getElementById('video1')
  video.style.width = pageSize.winW*/
-const {video, audio, page3, big_video, video_start, index_logo, index_title, page2_background, page2} = require('./getElement')
+const {video, audio, page3, big_video, video_start, start_icon, index_logo, index_title, page2_background, page2} = require('./getElement')
 
 /* 安卓全屏触发 resize 调整页面尺寸 */
 export let windowResize = function () {
@@ -36,7 +38,7 @@ showVideoIcon()
 if (isIOS) {
   // alert('ios')
   /* 点击开始播放 */
-  video_start.addEventListener('click', function () {
+  start_icon.addEventListener('click', function () {
     /* 修改横屏提示层状态 */
     state.iOSShouldAcross = true
 
@@ -76,7 +78,7 @@ if (isIOS) {
   /* 清除主视频src 因为安卓是通过替换背景视频src实现播放视频的 */
   big_video.src = ''
 
-  androidVideo(video, video_start)
+  androidVideo(video, start_icon)
   function androidVideo(videoEle, playButton) {
     let button2 = playButton
     let video = videoEle
@@ -96,6 +98,7 @@ if (isIOS) {
     /* 播放背景视频 */
     function bgVideoPlay() {
       /* 显示元素 */
+      showMoreArrow()
       showVideoIcon()
       index_logo.style.display = 'block'
       index_title.style.display = 'block'
@@ -115,6 +118,7 @@ if (isIOS) {
     /* 播放主视频 */
     function realVideoPlay() {
       /* 隐藏元素 */
+      hideMoreArrow()
       hideVideoIcon()
       index_logo.style.display = 'none'
       index_title.style.display = 'none'
@@ -123,7 +127,7 @@ if (isIOS) {
 
 
       state.androidBigVideo = true
-      video.src = './static/video/big.mp4'
+      video.src = params.big_video_src
       video.controls = 'controls'
       video.removeAttribute('x5-video-player-fullscreen')
       video.style = ''

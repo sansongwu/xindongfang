@@ -7,6 +7,7 @@ module.exports = {
   page3: document.getElementById('page3'),
   poetry: document.getElementById('poetry'),
   book: document.getElementById('book'),
+  page_more: document.getElementById('page_more'),
   page3_title: document.getElementById('page3_title'),
   page3_info: document.getElementById('page3_info'),
   page3_logo: document.getElementById('page3_logo'),
@@ -26,6 +27,7 @@ module.exports = {
   story_button: document.getElementById('story_button'),
   click_more: document.getElementById('click_more'),
   screen_across: document.getElementById('screen_across'),
+  start_icon: document.getElementById('start_icon'),
 
 
 }

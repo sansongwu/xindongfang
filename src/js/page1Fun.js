@@ -59,7 +59,7 @@ setTimeout(function () {
         /* 显示箭头 */
         setTimeout(() => {
           // document.getElementById('page1_arrow').style.display = 'block'
-          document.getElementById('page1_more').style.display = 'block'
+          document.getElementById('page_more').style.display = 'block'
         }, 800)
 
       }
