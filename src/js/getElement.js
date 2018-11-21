@@ -28,6 +28,7 @@ module.exports = {
   click_more: document.getElementById('click_more'),
   screen_across: document.getElementById('screen_across'),
   start_icon: document.getElementById('start_icon'),
+  page2_more: document.getElementById('page2_more'),
 
 
 }

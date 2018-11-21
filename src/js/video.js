@@ -43,7 +43,7 @@ if (isIOS) {
     state.iOSShouldAcross = true
 
     /* 点击播放 需要阻止第二页 自动跳转第三页 */
-    state.page3showed = true
+    state.canAutoChangePage = false
     // runVideo('videoID2')
 
     if (big_video.paused) {
@@ -87,7 +87,7 @@ if (isIOS) {
     button2.addEventListener('touchstart', function () {
       realVideoPlay()
       /* 点击播放 需要阻止第二页 自动跳转第三页 */
-      state.page3showed = true
+      state.canAutoChangePage = false
     })
     /* 主视频 按返回 退出全屏后 */
     video.addEventListener('x5videoexitfullscreen', function () {

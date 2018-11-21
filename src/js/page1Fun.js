@@ -61,9 +61,7 @@ setTimeout(function () {
           // document.getElementById('page1_arrow').style.display = 'block'
           document.getElementById('page_more').style.display = 'block'
         }, 800)
-
       }
-
       /* 诗词一行一行显示 */
       Velocity(list[i].children[0], {
         opacity: "1"
@@ -100,9 +98,9 @@ function page1ToPage2() {
       /* 移除resize事件  不需要给ios监听了 值给安卓监听  安卓微信无法横屏*/
       // window.removeEventListener("resize", videojs.windowResize)
 
-      /* 视频播放完执行跳转 第三页存在过  不自动跳转  */
+      /* 视频播放完执行跳转 如果状态是true 可以跳转 */
       video.onended = function() {
-        if (!state.page3showed) {
+        if (state.canAutoChangePage) {
           globalAnimate.autoVideoFinish()
 
         }

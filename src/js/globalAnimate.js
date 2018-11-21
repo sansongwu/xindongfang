@@ -1,4 +1,4 @@
-const {index_logo, index_title, page2_background, page3, page3_title, page3_info, video_start, page_more} = require('./getElement')
+const {index_logo, index_title, page2_background, page3, page3_title, page3_info, video_start, page2_more} = require('./getElement')
 const state = require('./state')
 const velocity = require('velocity-animate')
 require('velocity-animate/velocity.ui');
@@ -23,10 +23,10 @@ let hideIndexLogo = function () {
 
 /* 隐藏more箭头  第三页开始就不显示了 */
 export let hideMoreArrow = function () {
-  page_more.style.display = 'none'
+  page2_more.style.display = 'none'
 }
 export let showMoreArrow = function () {
-  page_more.style.display = 'block'
+  page2_more.style.display = 'block'
 }
 
 let hideIndexTitle = function () {
@@ -129,7 +129,7 @@ export let autoVideoFinish = function () {
         audiojs.openBGM()
         music_button.style.display = 'block'
       }
-      /* 修改第三页已经进入过了的状态  阻止第二页的自动跳转 */
+      /* 修改第三页已经进入过了的状态  阻止重复初始化 */
       state.page3showed = true
 
     }

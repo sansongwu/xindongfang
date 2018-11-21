@@ -25,9 +25,9 @@ page3.style.top = pageSize.winH + 'px'
 
 /* 懒加载  把src 数组 赋值给img的 src*/
 let srcArr = [
-  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/L.jpg?v=2',
-  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/V.jpg?v=1',
-  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/Y.jpg?1',
+  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/L.jpg?v=3',
+  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/V.jpg?v=3',
+  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/Y.jpg?v=3',
   'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/T.jpg',
   'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/O.jpg',
   'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/I.jpg',
@@ -35,7 +35,7 @@ let srcArr = [
   'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/C.jpg',
   'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/E.jpg',
   'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/D.jpg',
-  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/more.jpg?v=1',
+  'https://static.aotuer.com/h5/2018/xdf25/static/img/page3/book-content/more.jpg?v=3',
 ]
 
 function imgTimeLazyLoad(arr) {

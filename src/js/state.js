@@ -1,7 +1,7 @@
 let userAgent = window.navigator.userAgent
 module.exports = {
   /* 是否测试 */
-  isTest : false,
+  isTest : true,
   page1Ready: false,
   /* page3展示过了 */
   page3showed: false,
@@ -25,5 +25,7 @@ module.exports = {
   /* iOS 允许横屏 */
   iOSShouldAcross: false,
   /* 是否正在播放音乐 */
-  isMusicPlay: true
+  isMusicPlay: true,
+  /* 是否允许 从第二页 自动跳转 到第三页 */
+  canAutoChangePage: true
 }
