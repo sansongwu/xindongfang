@@ -1,7 +1,7 @@
 let userAgent = window.navigator.userAgent
 module.exports = {
   /* 是否测试 */
-  isTest : true,
+  isTest : false,
   page1Ready: false,
   /* page3展示过了 */
   page3showed: false,
