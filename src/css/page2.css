@@ -57,3 +57,16 @@
   color: #fafafa;
   font-size: 12px;
 }
+
+/* 提示上拉箭头 */
+.page2-more {
+  position: absolute;
+  left: 50%;
+  bottom: 2%;
+  transform: translateX(-50%);
+  z-index: 120;
+  width: 18%;
+}
+.page2-more img {
+  width: 100%;
+}
