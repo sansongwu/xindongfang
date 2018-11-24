@@ -162,7 +162,7 @@ let strArr = [
   ],
   [
     '种一棵树最好的时间是十年前，其次是现在。我们每个人从小都懂的道理，但大多数人到老也做不到。但这里面，不包括68岁的谭奶奶。',
-    '&nbsp;','退休之后，为了照顾生活在国外的外孙，谭奶奶变回了一张白纸，像听天书一样，坐到了英语学习的课堂上。精力、体力、记忆里，这些现实的理由，都没有让谭奶奶退缩，谭奶奶在这里一学就是8年。',
+    '&nbsp;','退休之后，为了照顾生活在国外的外孙，谭奶奶变回了一张白纸，像听天书一样，坐到了英语学习的课堂上。精力、体力、记忆，这些现实的理由，都没有让谭奶奶退缩，谭奶奶在这里一学就是8年。',
     '&nbsp;','在8年的学习生活中，谭奶奶觉得自己就像孩子一样，对未知的东西充满渴望，而她的内心，也好像回到了孩子般年轻的快乐。如今，谭奶奶随时可以踏上旅途，去想去的国家。',
     '&nbsp;','年龄，从来不是谭奶奶的借口，也不是让生活失去可能性的理由。',
     '&nbsp;','不让梦想退休，心就不会衰老。'
@@ -302,14 +302,14 @@ link.addEventListener('touchmove', function (e) {
 
 link.addEventListener('touchend', function (e) {
   // wx.miniProgram.navigateTo({url: 'www.baidu.com'})
-  console.log(`end是${end}`)
-  console.log(`start是${start}`)
-  console.log((Math.abs(end - start) < 10 || end == 0))
+  // console.log(`end是${end}`)
+  // console.log(`start是${start}`)
+  // console.log((Math.abs(end - start) < 10 || end == 0))
   e.stopPropagation()
   e.preventDefault()
   if (Math.abs(end - start) < 10 || end == 0) {
 
-    window.location.href = "https://mp.weixin.qq.com/mp/homepage?__biz=MjM5NzQzOTgyMA%3D%3D&hid=11&sn=62d2d21251348be0e55c37ae89de28e1&devicetype=iOS12.0.1&version=16070322&lang=zh_CN&nettype=3G+&ascene=1&fontScale=100&scene=1&from=singlemessage&isappinstalled=0"
+    window.location.href = "https://mp.weixin.qq.com/mp/homepage?__biz=MzAwNDAyMDIyNA==&hid=2&sn=442232e322f012bed5898fe00c6ee0e6&scene=1&devicetype=iOS12.0.1&version=16070325&lang=zh_CN&nettype=3G+&ascene=1&session_us=gh_97a82ae10af7&fontScale=100&from=singlemessage&isappinstalled=0&wx_header=1"
   }
 
   return false
